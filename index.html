@@ -1,27 +1,36 @@
 <!DOCTYPE html>
-<html lang="en   ">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Immido</title>
     <link
       rel="shortcut icon"
       href="https://placekitten.com/96/139"
       type="image/x-icon"
     />
-    <script
-      src="https://unpkg.com/htmx.org@1.9.10"
-      integrity="sha384-D1k+99CQMDuVetol1lrYwg5t+9QdHe7NLX/SoJYkXDFfx37iInKRy5xLsI8n07UC"
-      crossorigin="anonymous"
-    ></script>
+    <!-- 🛠️ Підключення HTMX -->
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
   </head>
   <body>
     <header>
-      <nav data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="global.header-nav.partial.html"></nav>
-      <div data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="index.header-hero.partial.html"></div>
+      <nav
+        data-hx-trigger="load"
+        data-hx-swap="outerHTML"
+        data-hx-get="global.header-nav.partial.html"
+      ></nav>
+      <div
+        data-hx-trigger="load"
+        data-hx-swap="outerHTML"
+        data-hx-get="index.header-hero.partial.html"
+      ></div>
     </header>
 
-    <footer data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="global.footer.partial.html"></footer>
+    <footer
+      data-hx-trigger="load"
+      data-hx-swap="outerHTML"
+      data-hx-get="global.footer.partial.html"
+    ></footer>
   </body>
-</html> 
+</html>
