@@ -17,7 +17,11 @@
     ></script>
   </head>
   <body>
-    <h1>тестуємо картинку immido</h1>
-    <img src="img/immido_logo.png" alt="immido_logo">
+    <header>
+      <nav data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="global.header-nav.partial.html"></nav>
+      <div data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="index.header-hero.partial.html"></div>
+    </header>
+
+    <footer data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="global.footer.partial.html"></footer>
   </body>
 </html> 
