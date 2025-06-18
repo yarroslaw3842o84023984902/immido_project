@@ -1,5 +1,5 @@
 <nav class="nav navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid nav__container">
+  <div class="container nav__container">
     <div class="nav__logo navbar-brand">
       <img
         class="nav__logo-img"
@@ -12,18 +12,20 @@
       class="nav__toggle navbar-toggler"
       type="button"
       data-bs-toggle="collapse"
-      data-bs-target="#nav-main-menu"
-      aria-controls="nav-main-menu"
+      data-bs-target="#header-nav"
+      aria-controls="header-nav"
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="nav__menu-wrapper collapse navbar-collapse" id="nav-main-menu">
+    <div class="nav__menu-wrapper collapse navbar-collapse" id="header-nav">
       <ul class="nav__menu navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav__menu-item nav-item">
-          <a class="nav__menu-link nav-link active" aria-current="page" href="#">ГОЛОВНА</a>
+          <a class="nav__menu-link nav-link active" aria-current="page" href="#"
+            >ГОЛОВНА</a
+          >
         </li>
         <li class="nav__menu-item nav-item">
           <a class="nav__menu-link nav-link" href="#">ПРО НАС</a>
@@ -37,7 +39,6 @@
         <li class="nav__menu-item nav-item">
           <a class="nav__menu-link nav-link" href="#">КОНТАКТИ</a>
         </li>
-      
       </ul>
 
       <div class="nav__contact">
@@ -59,6 +60,13 @@
           </svg>
           <span class="nav__contact-number">0 800 750 040</span>
         </a>
+        <div class="language-selector">
+          <button id="language-button">🌐 Вибір мови</button>
+          <ul id="language-list" style="display: none">
+            <li><button onclick="setLanguage('uk')">🇺🇦 Українська</button></li>
+            <li><button onclick="setLanguage('en')">🇬🇧 English</button></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
