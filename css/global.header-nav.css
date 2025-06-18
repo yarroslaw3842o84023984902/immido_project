@@ -1,0 +1,10 @@
+.nav.navbar.navbar-expand-lg.bg-body-tertiary{
+    background-color: #2F2B63 !important;
+    
+   }
+   .nav__menu-link,
+   .nav__menu-link.nav-link.active {
+    color: var(--color-accent);
+    font-family: var(--font-family)
+  }
+  
