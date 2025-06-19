@@ -12,17 +12,25 @@
 :root {
   scroll-behavior: smooth;
   --font-family: "Crimson Pro", serif;
-  --font-secondary: "Abel", sans-serif
-  --font-title-size: 54px;
+  --font-secondary: "Abel", sans-serif;
   --color-primary: #2F2B63;
   --color-secondary: #FFC20E;
+  --border-color: hwb(0 100% 0%);
   --color-accent: #f5f4f2;
   --color-light: #080400;
   --color-dark: #ff7300;
-  --background-color-main: white;
+  --background-color-main: hwb(0 100% 0%);
+  --text-color: hwb(0 100% 0%);
 }
 
 img {
     display: block;
     max-width: 100%;
 }
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  overflow-x: hidden;
+}
+

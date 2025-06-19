@@ -1,10 +1,46 @@
-.nav.navbar.navbar-expand-lg.bg-body-tertiary{
-    background-color: #2F2B63 !important;
-    
-   }
-   .nav__menu-link,
-   .nav__menu-link.nav-link.active {
-    color: var(--color-accent);
-    font-family: var(--font-family)
+.nav {
+  background-color: #2F2B63;
+  padding: 16px 0;
+  width: 100%; /* займає всю ширину */
+  box-sizing: border-box;
+}
+
+.nav__menu {
+  padding: 0;
+  margin: 0;
+
+}
+.nav__menu-item {
+  display: flex;
+  flex-direction: column;
+  padding-left: 7px;
+}
+
+.nav__menu-link {
+    text-decoration: none;  /* прибирає підкреслення */
+    color: var(--text-color);   /*колір*/
+}
+
+
+@media (min-width: 908px) {
+  .nav__menu{
+    display: flex;
+    flex-direction: row;
+    margin-top: 11px;
+    font-size: 13px;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .nav__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+    justify-content: space-around;
+    gap: 20px;
   }
   
+}

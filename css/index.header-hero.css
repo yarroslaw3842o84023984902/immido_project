@@ -1,0 +1,48 @@
+.team__person-banner {
+    position: relative;
+    background-image: url("../img/Group 34.png");
+    background-size: cover;
+    background-position: center;
+    margin-top: 50px;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 40px;
+    
+    max-width: 1600px;  /* обмежує ширину */
+    margin-left: auto;  /* центрує по горизонталі */
+    margin-right: auto; /* центрує по горизонталі */
+    width: 100%;        /* щоб банер адаптивно займав максимум 1000px або менше */
+}
+
+/* Псевдоелемент для градієнтного затемнення */
+.team__person-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%; /* половина блоку */
+    height: 100%;
+    background: linear-gradient(to right, rgba(21, 33, 85, 0.85), rgba(21, 33, 85, 0)); /* темно-синій з прозорістю */
+    z-index: 1;
+}
+
+/* Текст поверх затемнення */
+.team__person-description {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    color: white;
+    font-size: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Жовтий акцент на слові "аутсорсинг" */
+.team__person-description span {
+    color: var(--color-secondary);
+}
