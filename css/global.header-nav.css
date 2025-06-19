@@ -3,6 +3,7 @@
   padding: 16px 0;
   width: 100%; /* займає всю ширину */
   box-sizing: border-box;
+
 }
 
 .nav__menu {
@@ -13,7 +14,7 @@
 .nav__menu-item {
   display: flex;
   flex-direction: column;
-  padding-left: 7px;
+  padding-left: 0px;
 }
 
 .nav__menu-link {
@@ -22,25 +23,33 @@
 }
 
 
-@media (min-width: 908px) {
+@media (min-width: 1057px) {
   .nav__menu{
     display: flex;
     flex-direction: row;
     margin-top: 11px;
-    font-size: 13px;
-    justify-content: flex-start;
-    gap: 20px;
+    font-size:18px;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    text-align: var(--font-family);
+    
   }
 
   .nav__container {
     display: flex;
     flex-direction: row;
     align-items: center;
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 16px;
-    justify-content: space-around;
-    gap: 20px;
+    justify-content: space-between;
+    gap: 18px;
+    width: 100%;
+    flex: 1;
+    
   }
+
+  
   
 }
