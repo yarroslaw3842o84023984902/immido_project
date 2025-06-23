@@ -1,4 +1,47 @@
 .team__person-banner {
+  position: relative;
+  background-image: url("../img/Group 34.png");
+  background-size: cover;
+  background-position: center;
+  padding: 60px 20px;
+  color: white;
+  text-transform: uppercase;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 50px;
+}
+
+.team__person-description {
+  position: relative;
+  z-index: 2;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.2;
+  max-width: 100%;
+  color: white;
+  margin: 0;
+}
+.team__person-description span {
+  color: var(--color-secondary);
+}
+
+.team__person-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(21, 33, 85, 0.85),
+    rgba(21, 33, 85, 0)
+  );
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .team__person-banner {
     position: relative;
     background-image: url("../img/Group 34.png");
     background-size: cover;
@@ -12,27 +55,31 @@
     font-weight: bold;
     text-transform: uppercase;
     font-size: 40px;
-    
-    max-width: 1600px;  /* обмежує ширину */
-    margin-left: auto;  /* центрує по горизонталі */
-    margin-right: auto; /* центрує по горизонталі */
-    width: 100%;        /* щоб банер адаптивно займав максимум 1000px або менше */
-}
 
-/* Псевдоелемент для градієнтного затемнення */
-.team__person-banner::before {
+    max-width: 1600px; /* обмежує ширину */
+    margin-left: auto; /* центрує по горизонталі */
+    margin-right: auto; /* центрує по горизонталі */
+    width: 100%; /* щоб банер адаптивно займав максимум 1000px або менше */
+  }
+
+  /* Псевдоелемент для градієнтного затемнення */
+  .team__person-banner::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 50%; /* половина блоку */
     height: 100%;
-    background: linear-gradient(to right, rgba(21, 33, 85, 0.85), rgba(21, 33, 85, 0)); /* темно-синій з прозорістю */
+    background: linear-gradient(
+      to right,
+      rgba(21, 33, 85, 0.85),
+      rgba(21, 33, 85, 0)
+    ); /* темно-синій з прозорістю */
     z-index: 1;
-}
+  }
 
-/* Текст поверх затемнення */
-.team__person-description {
+  /* Текст поверх затемнення */
+  .team__person-description {
     position: relative;
     z-index: 2;
     max-width: 800px;
@@ -42,11 +89,11 @@
     text-transform: uppercase;
     word-wrap: break-word;
     margin-left: 80px;
-    line-height: 1.10;
+    line-height: 1.1;
+  }
 
-}
-
-/* Жовтий акцент на слові "аутсорсинг" */
-.team__person-description span {
+  /* Жовтий акцент на слові "аутсорсинг" */
+  .team__person-description span {
     color: var(--color-secondary);
+  }
 }

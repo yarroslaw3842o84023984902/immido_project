@@ -1,0 +1,12 @@
+@media (min-width: 768px) {
+  .focus__mai_trust {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 135px;
+    color: var(--color-primary);
+    font-size: 30px;
+    margin-top: 60px;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+}
