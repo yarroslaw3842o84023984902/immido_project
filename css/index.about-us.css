@@ -6,11 +6,60 @@
   .about-us__title {
     padding: 0 119px;
     margin-top: 130px;
-    font-size: 50px;
+    font-size: 36px;
     font-weight: bold;
     color: var(--color-primary);
     text-transform: uppercase;
-    font-weight: 600
-
+    font-weight: 800;
   }
+  .about-us__cards-wrapper {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    padding: 60px 119px; /* тепер вирівнюється з заголовком */
+  
+  }
+
+  .about-us__card {
+    position: relative;
+    height: 390px;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    margin-top: -50px;
+  }
+  .about-us__card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+    z-index: 0;
+  }
+
+
+  .about-us__card--support,
+  .about-us__card--fast-launch,
+  .about-us__card--pm-involved {
+    background-image: url(/img/test.jpeg);
+  
+}
+.about-us__card--languages {
+  background-image: url(/img/lang_flags1.PNG);
+  background-position: left center;
+  background-position: 5% center;
+}
+.about-us__card-text  {
+  z-index: 1;
+  font-size: 26px;
+  
+}
 }
