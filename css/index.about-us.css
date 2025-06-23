@@ -1,0 +1,16 @@
+.about-us__title {
+  padding: 60px 20px;
+}
+
+@media (min-width: 768px) {
+  .about-us__title {
+    padding: 0 119px;
+    margin-top: 130px;
+    font-size: 50px;
+    font-weight: bold;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    font-weight: 600
+
+  }
+}

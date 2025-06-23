@@ -1,77 +1,80 @@
-
 .focus__mai_trust {
-    
-    text-align: center;
-    padding: 60px 20px;
-    color: var(--color-primary);
-    font-size: 15px;
-    font-weight: bold;
-    flex-wrap: wrap;
-    text-transform: uppercase;
-    align-items: center;
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--color-primary);
+  font-size: 15px;
+  font-weight: bold;
+
+  flex-wrap: wrap;
+  text-transform: uppercase;
+  align-items: center;
+
 }
 
 .fast__calculation-button {
-    margin-left: auto;
-    margin-right: auto;
-    text-transform: uppercase;
-  }
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: uppercase;
+  margin-top: 15px;
+}
 
-  .fast__calculation-button {
-    background-color: var(--color-primary); /* фіолетовий фон */
-    color: var(--text-color); /* білий текст */
-    padding: 15px 30px;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 15px;
-    text-transform: uppercase;
-    cursor: pointer;
-    display: inline-block;
-    border: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    text-shadow: none; /* без світіння */
-  }
-  
-  .fast__calculation-button:hover {
-    background-color: var(--color-secondary); /* жовтий фон */
-    color: var(--color-primary); /* фіолетовий текст */
-    text-shadow: none; /* без тіні */
-  }
+.fast__calculation-button {
+  background-color: var(--color-primary); /* фіолетовий фон */
+  color: var(--text-color); /* білий текст */
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 15px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-block;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-shadow: none; /* без світіння */
+}
 
-
+.fast__calculation-button:hover {
+  background-color: var(--color-secondary); /* жовтий фон */
+  color: var(--color-primary); /* фіолетовий текст */
+  text-shadow: none; /* без тіні */
+}
 
 @media (min-width: 768px) {
-    .desktop-only {
-        display: inline;
-      }
+  .desktop-only {
+    display: inline;
+  }
+
+  .focus__mai_trust-text h2 {
+    font-family: var(--font-family);
+    font-weight: 550;
+  }
 
   .focus__mai_trust {
     display: flex;
-   text-align: left;
+    text-align: left;
     justify-content: space-between;
-    margin-left: 119px;
+    padding: 0 119px;
+
     color: var(--color-primary);
     font-size: 30px;
     margin-top: 60px;
     line-height: 1.1;
     text-transform: uppercase;
-    
   }
 
   .fast__calculation-button {
     background-color: var(--color-primary); /* фіолетовий фон */
     color: var(--text-color); /* білий текст */
     padding: 25px 40px; /* відступи зверху/знизу і з боків */
-    
     border-radius: 50px; /* округлені краї */
-    font-weight: bold;
     font-size: 20px;
     text-transform: uppercase;
     cursor: pointer;
     display: inline-block;
     transition: background-color 0.3s ease;
+    margin-top: auto;
   }
-  
+
   .fast__calculation-button:hover {
     background-color: var(--color-secondary);
     color: var(--color-primary);
