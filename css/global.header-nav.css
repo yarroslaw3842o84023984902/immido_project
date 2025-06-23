@@ -23,6 +23,11 @@
   text-decoration: none; /* прибирає підкреслення */
   color: var(--text-color); /*колір*/
 }
+.nav__menu-link:hover {
+  color: var(--color-secondary); /* жовтий текст */
+  background-color: transparent; /* прозорий фон */
+  text-shadow: none; /* без тіні */
+}
 
 @media (min-width: 1057px) {
   .nav__container {
@@ -77,5 +82,11 @@
     gap: 6px;
     font-size: 16px;
     color: var(--text-color);
+  }
+
+  .nav__menu-link:hover {
+    color: #ffd700; /* жовтий текст */
+    font-weight: 300;
+    text-shadow: none; /* без тіні */
   }
 }
