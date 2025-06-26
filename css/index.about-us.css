@@ -2,6 +2,83 @@
   padding: 60px 20px;
 }
 
+.about-us__cards-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px 20px;
+}
+
+.about-us__card {
+  position: relative;
+  min-height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.flip-card {
+  perspective: 1000px;
+  width: 100%;
+  height: 390px;
+}
+
+.flip-card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card.is-flipped .flip-card__inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card__front,
+.flip-card__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.flip-card__back {
+  transform: rotateY(180deg);
+}
+
+.flip-card__back.about-us__card--languages,
+.flip-card__front.about-us__card--languages {
+  background-image: url(/img/lang_flags1.PNG);
+  background-position: 0% center;
+}
+
+/* ❗ ЗА МЕЖАМИ @media */
+.flip-card__front.about-us__card--support {
+  background-image: url(/img/second_cart_about_us.png);
+}
+
 @media (min-width: 768px) {
   .about-us__title {
     padding: 0 119px;
@@ -35,20 +112,6 @@
     background-repeat: no-repeat;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     margin-top: -50px;
-  }
-
-  .about-us__card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
-    z-index: 0;
-  }
-
-  .about-us__card--support,
-  .about-us__card--fast-launch,
-  .about-us__card--pm-involved {
-    background-image: url(/img/test.jpeg);
   }
 
   .flip-card__front.about-us__card--languages {
@@ -99,10 +162,25 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   }
 
-  .flip-card__back.about-us__card {
+  .flip-card__back.about-us__card--languages,
+  .flip-card__back--languages {
     background-image: url(/img/lang_flags1.PNG);
     transform: rotateY(180deg);
     background-position: 5% center;
     font-size: 1px; /* можеш прибрати, якщо не треба */
+  }
+
+  .flip-card__back.about-us__card.flip-card__back--support,
+  .flip-card__front.about-us__card.about-us__card--support {
+    background-image: url(/img/second_cart_about_us.png);
+  }
+
+  .flip-card__front.about-us__card.about-us__card--fast-launch,
+  .flip-card__back.about-us__card.flip-card__back--fast-launch {
+    background-image: url(/img/3_card.png);
+  }
+  .flip-card__front.about-us__card.about-us__card--pm-involved,
+  .flip-card__back.about-us__card.flip-card__back--pm-involved {
+    background-image: url(/img/3_card.png);
   }
 }
