@@ -56,7 +56,7 @@
     text-transform: uppercase;
     font-size: 40px;
 
-    max-width: 1600px; /* обмежує ширину */
+    max-width: 100%; /* обмежує ширину */
     margin-left: auto; /* центрує по горизонталі */
     margin-right: auto; /* центрує по горизонталі */
     width: 100%; /* щоб банер адаптивно займав максимум 1000px або менше */
