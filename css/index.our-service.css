@@ -1,0 +1,63 @@
+.our-service__title {
+  padding: 0px 20px;
+  font-size: 40px;
+  color: var(--color-primary);
+}
+.carousel {
+  max-width: 100%;
+  background-color: #fbc02d; /* яскравий жовтий */
+  padding: 20px 0;
+}
+
+.carousel-inner {
+  height: 400px;
+  overflow: hidden;
+}
+
+.carousel-item img {
+  height: 200px;
+  width: 700px;
+  object-fit: cover;
+}
+
+/* Кнопки навігації */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1);
+}
+
+@media (min-width: 768px) {
+
+    .our-service__wrapper {
+        padding: 50px 0px;
+
+    }
+   
+  .our-service__title {
+    padding: 0 119px;
+    margin-top: 110px;
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    
+  }
+
+  .carousel-inner {
+    width: 700px;
+    height: 400px; /* або скільки потрібно */
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .carousel-item img {
+    height: 400px;
+    width: 900px;
+    object-fit: cover;
+  }
+
+  
+
+
+}
