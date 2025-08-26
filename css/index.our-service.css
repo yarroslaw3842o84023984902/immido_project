@@ -20,7 +20,7 @@
   color: #fff;
 }
 
-/* Заголовок зверху на дві колонки */
+/* Заголовок зверху н2а дві колонки */
 .maint-title-our-service {
   grid-column: 1 / -1;
   margin: 32px 20px 0;
