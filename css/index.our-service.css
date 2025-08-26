@@ -98,9 +98,23 @@
 .slide__content {
   grid-column: 2;
   grid-row: 2;
-  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;   /* від верхнього краю */
+  align-items: flex-start;
+  gap: 16px;                     /* відступ між заголовком і текстом */
   line-height: 1.6;
-  font-size: 20px;
+  font-size: 18px;
+  text-align: justify;           /* як у прикладі — рівняння по ширині */
+}
+
+/* Заголовок у правому блоці */
+.slide__content-title {
+  font-size: 22px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0;
+  color: #fff;
 }
 
 /* Кнопки керування */
