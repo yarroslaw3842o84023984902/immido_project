@@ -1,64 +1,55 @@
 <section class="our-service-section">
-  <div class="our-service__title">
-    Наші послуги
-  </div>
-  <div class="our-service__wrapper">
-  <div id="carouselExampleIndicators" class="carousel slide">
-    <div class="carousel-indicators">
-      <button
-        type="button"
-        data-bs-target="#carouselExampleIndicators"
-        data-bs-slide-to="0"
-        class="active"
-        aria-current="true"
-        aria-label="Slide 1"
-      ></button>
-      <button
-        type="button"
-        data-bs-target="#carouselExampleIndicators"
-        data-bs-slide-to="1"
-        aria-label="Slide 2"
-      ></button>
-      <button
-        type="button"
-        data-bs-target="#carouselExampleIndicators"
-        data-bs-slide-to="2"
-        aria-label="Slide 3"
-      ></button>
+  <h2 class="our-service__title">Наші послуги</h2>
+
+  <div class="slider" id="services-slider">
+    <button class="slider__control slider__control--prev" aria-label="Попередній">‹</button>
+
+    <div class="slider__track">
+      <H3 class="maint-title-our-service">Аутсорс персоналу</H3>
+
+      <article class="slide active" data-index="0">
+        <nav class="slide__menu">
+          <button class="slide__menu-item" data-go="0">Рекрутинг</button>
+          <button class="slide__menu-item" data-go="1">Масовий підбір</button>
+          <button class="slide__menu-item" data-go="2">Резервний працівник</button>
+          <button class="slide__menu-item" data-go="3">Підбір персоналу зі знанням іноземної мови</button>
+        </nav>
+        <div class="slide__content">Контент слайда 0</div>
+      </article>
+
+      <article class="slide" data-index="1">
+        <nav class="slide__menu">
+          <button class="slide__menu-item" data-go="0">Рекрутинг</button>
+          <button class="slide__menu-item" data-go="1">Масовий підбір</button>
+          <button class="slide__menu-item" data-go="2">Резервний працівник</button>
+          <button class="slide__menu-item" data-go="3">Підбір персоналу зі знанням іноземної мови</button>
+        </nav>
+        <div class="slide__content">Контент слайда 1</div>
+      </article>
+
+      <article class="slide" data-index="2">
+        <nav class="slide__menu">
+          <button class="slide__menu-item" data-go="0">Рекрутинг</button>
+          <button class="slide__menu-item" data-go="1">Масовий підбір</button>
+          <button class="slide__menu-item" data-go="2">Резервний працівник</button>
+          <button class="slide__menu-item" data-go="3">Підбір персоналу зі знанням іноземної мови</button>
+        </nav>
+        <div class="slide__content">Контент слайда 2</div>
+      </article>
+
+      <article class="slide" data-index="3">
+        <nav class="slide__menu">
+          <button class="slide__menu-item" data-go="0">Рекрутинг</button>
+          <button class="slide__menu-item" data-go="1">Масовий підбір</button>
+          <button class="slide__menu-item" data-go="2">Резервний працівник</button>
+          <button class="slide__menu-item" data-go="3">Підбір персоналу зі знанням іноземної мови</button>
+        </nav>
+        <div class="slide__content">Контент слайда 3</div>
+      </article>
     </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="./img/test.jpeg" class="d-block w-100" alt="..." />
-      </div>
-      <div class="carousel-item">
-        <img src="./img/lang_flags1.PNG" class="d-block w-100" alt="..." />
-      </div>
-      <div class="carousel-item">
-        <img
-          src="./img.global/immido_logo.png"
-          class="d-block w-100"
-          alt="..."
-        />
-      </div>
-    </div>
-    <button
-      class="carousel-control-prev"
-      type="button"
-      data-bs-target="#carouselExampleIndicators"
-      data-bs-slide="prev"
-    >
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button
-      class="carousel-control-next"
-      type="button"
-      data-bs-target="#carouselExampleIndicators"
-      data-bs-slide="next"
-    >
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+
+    <button class="slider__control slider__control--next" aria-label="Наступний">›</button>
   </div>
-</div>
+  <script src="slider.js"></script>
+
 </section>

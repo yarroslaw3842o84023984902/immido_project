@@ -1,63 +1,123 @@
-.our-service__title {
-  padding: 0px 20px;
-  font-size: 40px;
-  color: var(--color-primary);
-}
-.carousel {
-  max-width: 100%;
-  background-color: #fbc02d; /* яскравий жовтий */
-  padding: 20px 0;
+/* Базовий слайдер */
+.slider {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.carousel-inner {
-  height: 400px;
+.slider__track {
+  /* 2 колонки: меню (ширше) + контент */
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: auto 1fr; /* 1-й ряд — заголовок, 2-й — контент */
+  gap: 24px;
+  min-height: 400px;
+
+  position: relative;
   overflow: hidden;
+  background: var(--color-primary);
+  color: #fff;
 }
 
-.carousel-item img {
-  height: 200px;
-  width: 700px;
-  object-fit: cover;
+/* Заголовок зверху на дві колонки */
+.maint-title-our-service {
+  grid-column: 1 / -1;
+  margin: 32px 20px 0;
+  color: var(--color-secondary);
+  font-weight: 800;
+  text-transform: uppercase;
 }
 
-/* Кнопки навігації */
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  filter: invert(1);
+/* Слайди: показ/приховування */
+.slide {
+  display: none;
+  height: 100%;
+  padding: 0;
+  color: inherit;
+}
+.slide.active {
+  display: contents;
 }
 
-@media (min-width: 768px) {
+/* Меню зліва */
+.slide__menu {
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;   /* щоб не розтягувалось */
+  gap: 12px;                 /* відступи між пунктами */
+  margin: 0;
+  border: 0;
+}
 
-    .our-service__wrapper {
-        padding: 50px 0px;
+/* Пункти меню */
+.slide__menu-item {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font: inherit;
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: .02em;
+  padding: 6px 0 6px 18px;   /* відступ під індикатор */
+  cursor: pointer;
+  position: relative;
+  white-space: normal;       /* дозволяємо перенос */
+  word-wrap: break-word;     /* переносимо довгі слова */
+  max-width: 100%;           /* не вилазить за межі */
+}
 
-    }
-   
-  .our-service__title {
-    padding: 0 119px;
-    margin-top: 110px;
-    font-size: 36px;
-    font-weight: bold;
-    color: var(--color-primary);
-    text-transform: uppercase;
-    
-  }
+/* Активний пункт */
+.slide__menu-item.is-active {
+  color: var(--color-secondary);
+}
+.slide__menu-item.is-active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 60%;
+  background: var(--color-secondary);
+  border-radius: 3px;
+}
 
-  .carousel-inner {
-    width: 700px;
-    height: 400px; /* або скільки потрібно */
-    margin: 0 auto;
-    overflow: hidden;
-    position: relative;
-  }
+/* Hover ефект */
+.slide__menu-item:hover {
+  color: var(--color-secondary); /* жовтий текст */
+  font-weight: bold;
+  background-color: transparent;
+  text-shadow: none;
+}
 
-  .carousel-item img {
-    height: 400px;
-    width: 900px;
-    object-fit: cover;
-  }
+/* Контент праворуч */
+.slide__content {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: center;
+  line-height: 1.6;
+  font-size: 20px;
+}
 
-  
-
-
+/* Кнопки керування */
+.slider__control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 32px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: white;
+  padding: 8px 12px;
+}
+.slider__control--prev {
+  left: 8px;
+}
+.slider__control--next {
+  right: 8px;
 }
