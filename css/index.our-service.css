@@ -1,8 +1,9 @@
 /* Базовий слайдер */
 .slider {
   position: relative;
-  max-width: 900px;
-  margin: 0 auto;
+  width: 100%;          /* тягнемо на всю ширину */
+  max-width: none;      /* прибираємо обмеження */
+  margin: 0;            /* без auto-центрування */
 }
 
 .slider__track {
@@ -134,4 +135,27 @@
 }
 .slider__control--next {
   right: 8px;
+}
+
+.our-service__title {
+  padding: 0px 20px;
+  font-size: 40px;
+  color: var(--color-primary);
+}
+
+
+@media (min-width: 768px) {
+  .our-service__title {
+    padding: 0 119px;
+    margin-top: 110px;
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--color-primary);
+    text-transform: uppercase;
+  }
+
+  .our-service-section {
+    padding: 50px 119px;
+    background: var(--color-primary);
+  }
 }
