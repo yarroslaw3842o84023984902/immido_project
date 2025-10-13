@@ -25,8 +25,9 @@
   grid-column: 1 / -1;
   margin: 32px 20px 0;
   color: var(--color-secondary);
-  font-weight: 800;
+  font-weight: 700;
   text-transform: uppercase;
+  font-size: 45px;
 }
 
 /* Слайди: показ/приховування */
@@ -50,6 +51,7 @@
   gap: 12px;                 /* відступи між пунктами */
   margin: 0;
   border: 0;
+  font-size: 30px
 }
 
 /* Пункти меню */
@@ -68,7 +70,7 @@
   position: relative;
   white-space: normal;       /* дозволяємо перенос */
   word-wrap: break-word;     /* переносимо довгі слова */
-  max-width: 100%;           /* не вилазить за межі */
+  max-width: 500px;           /* не вилазить за межі */
 }
 
 /* Активний пункт */
@@ -105,42 +107,52 @@
   align-items: flex-start;
   gap: 16px;                     /* відступ між заголовком і текстом */
   line-height: 1.6;
-  font-size: 18px;
-  text-align: justify;           /* як у прикладі — рівняння по ширині */
+  font-size: 25px;
+  /*text-align: justify;           /* як у прикладі — рівняння по ширині */
 }
 
 /* Заголовок у правому блоці */
 .slide__content-title {
-  font-size: 22px;
+  font-size: 30px;
   font-weight: 800;
   text-transform: uppercase;
   margin: 0;
   color: #fff;
 }
 
-/* Кнопки керування */
+/* === КНОПКИ КЕРУВАННЯ === */
+.slider {
+  position: relative;
+  overflow: visible; /* дозволяємо стрілкам виходити за межі */
+}
+
 .slider__control {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 32px;
+  font-size: 80px;
+  font-weight: 300;
+  color: var(--color-secondary);
   background: none;
-  border: 0;
+  border: none;
   cursor: pointer;
-  color: white;
-  padding: 8px 12px;
-}
-.slider__control--prev {
-  left: 8px;
-}
-.slider__control--next {
-  right: 8px;
+  transition: all 0.3s ease;
+  z-index: 10;
 }
 
-.our-service__title {
-  padding: 0px 20px;
-  font-size: 40px;
-  color: var(--color-primary);
+/* ефект наведення */
+.slider__control:hover {
+  color: #fff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* розташування */
+.slider__control--prev {
+  left: -70px;  /* поза контентом, не на тексті */
+}
+
+.slider__control--next {
+  right: -70px;
 }
 
 

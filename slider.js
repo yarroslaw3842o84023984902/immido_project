@@ -1,39 +1,48 @@
+// === СТАН ===
+const slider = document.getElementById('services-slider');
+const slides = Array.from(slider.querySelectorAll('.slide'));
+const prevBtn = slider.querySelector('.slider__control--prev');
+const nextBtn = slider.querySelector('.slider__control--next');
 
-  // === СТАН ===
-  const slider = document.getElementById('services-slider');
-  const slides = Array.from(slider.querySelectorAll('.slide'));
-  const prevBtn = slider.querySelector('.slider__control--prev');
-  const nextBtn = slider.querySelector('.slider__control--next');
-  let currentIndex = 0;
+let currentSlideIndex = 0; // поточна картка
 
-  // === РЕНДЕР ===
-  function render() {
-    // TODO: показувати лише slides[currentIndex] (клас active)
-    slides.forEach((s, i) => {
-      s.classList.toggle('active', i === currentIndex);
-    });
-  }
-
-  // === НАВІГАЦІЯ СТРІЛКАМИ ===
-  function go(delta) {
-    // TODO: змінити currentIndex з циклом (0..slides.length-1)
-    currentIndex = (currentIndex + delta + slides.length) % slides.length;
-    render();
-  }
-
-  prevBtn.addEventListener('click', () => go(-1));
-  nextBtn.addEventListener('click', () => go(1));
-
-  // === КЛІКИ ПО МЕНЮ ВСЕРЕДИНІ СЛАЙДА ===
-  slider.addEventListener('click', (e) => {
-    const btn = e.target.closest('.slide__menu-item');
-    if (!btn) return;
-    const targetIndex = Number(btn.dataset.go);
-    if (!Number.isNaN(targetIndex)) {
-      currentIndex = targetIndex;
-      render();
-    }
+// === ФУНКЦІЯ РЕНДЕРУ КАРТОК ===
+function renderSlides() {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === currentSlideIndex);
   });
+}
 
-  // Перший рендер
-  render();
+// === ПЕРЕХІД МІЖ КАРТКАМИ СТРІЛКАМИ ===
+function goSlide(delta) {
+  currentSlideIndex = (currentSlideIndex + delta + slides.length) % slides.length;
+  renderSlides();
+}
+
+// === КЛІКИ ПО МЕНЮ ВСЕРЕДИНІ КАРТКИ ===
+slider.addEventListener('click', (e) => {
+  const btn = e.target.closest('.slide__menu-item');
+  if (!btn) return;
+
+  const slide = btn.closest('.slide');
+  if (!slide) return;
+
+  // знімаємо активність з усіх пунктів у цій картці
+  slide.querySelectorAll('.slide__menu-item').forEach(el => el.classList.remove('is-active'));
+  btn.classList.add('is-active');
+
+  const targetIndex = Number(btn.dataset.go);
+  const contents = slide.querySelectorAll('.slide__content');
+
+  // показуємо лише потрібний контент усередині цієї картки
+  contents.forEach((content, i) => {
+    content.style.display = (i === targetIndex) ? 'flex' : 'none';
+  });
+});
+
+// === ОБРОБНИКИ КНОПОК ===
+prevBtn.addEventListener('click', () => goSlide(-1));
+nextBtn.addEventListener('click', () => goSlide(1));
+
+// === ІНІЦІАЛІЗАЦІЯ ===
+renderSlides();
