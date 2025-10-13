@@ -33,7 +33,18 @@ body {
   padding: 0;
   width: 100%;
   overflow-x: hidden;
-  background-color: #F2F4F8;
+  background-color: #ffffff;
   
 }
+
+ /* html {
+  transform: scale(0.9); 
+  transform-origin: top center; 
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+ */
 

@@ -1,0 +1,51 @@
+<section class="contact-section">
+  <div class="contact-container">
+    <div class="contact-info">
+      <h2 class="contact-title">Готові до співпраці?</h2>
+      <p class="contact-text">
+        Заповніть форму — і наша команда зв’яжеться з вами, щоб обговорити деталі
+        та відповісти на всі ваші запитання.
+      </p>
+
+      <ul class="contact-details">
+        <li><i class="icon">✉️</i> <a href="mailto:info@immido.co">info@immido.co</a></li>
+        <li><i class="icon">📞</i> 080-075-00-40</li>
+        <li><i class="icon">📍</i> Україна, Київ<br>вул. Антоновича 164</li>
+      </ul>
+
+      <div class="contact-social">
+        <a href="#" class="facebook" aria-label="Facebook">
+          <img src="img/faceb.png" alt="Facebook" />
+        </a>
+        <a href="#" class="telegram" aria-label="Telegram">
+          <img src="img/телега.png" alt="Telegram" />
+        </a>
+        <a href="#" class="linkedin" aria-label="LinkedIn">
+          <img src="img/LinkedIn 2.png" alt="LinkedIn" />
+        </a>
+        <a href="#" class="instagram" aria-label="Instagram">
+          <img src="img/інст.png" alt="Instagram" />
+        </a>
+      </div>
+    </div> 
+
+    <!-- ✅ ОНОВЛЕНА ФОРМА -->
+    <form class="contact-form" action="https://formspree.io/f/mjkapojz" method="POST">
+      <label for="name">Ім’я</label>
+      <input type="text" id="name" name="name" placeholder="Ваше ім’я" required>
+
+      <label for="phone">Номер телефону</label>
+      <input type="tel" id="phone" name="phone" placeholder="+380..." required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+
+      <label for="message">Повідомлення</label>
+      <textarea id="message" name="message" rows="4" placeholder="Ваше повідомлення"></textarea>
+
+      <button type="submit" class="contact-submit">
+        <i class="fa-solid fa-paper-plane"></i> Надіслати
+      </button>
+    </form>
+  </div>
+</section>
