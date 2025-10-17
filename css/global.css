@@ -32,8 +32,8 @@ html, body {
   width: 100%;
   overflow-x: hidden;
   background-color: #f8f3ed;
-  background-image: url("/img/a_lot_lines.png");
-  background-size: 110%;
+  background-image: url("/img/lines_second.jpg");
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: center top;
   background-attachment: fixed;
@@ -45,10 +45,11 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(255, 255, 255, 0.88); /* 👈 трішки прозоріше */
-  backdrop-filter: blur(2px); /* легке розмиття */
+  background: rgba(255, 255, 255, 0.05); /* 🔹 майже прозорий */
+  backdrop-filter: blur(1.5px) brightness(1.03); /* 🔹 легкий розмитий блиск */
+  -webkit-backdrop-filter: blur(1.5px) brightness(1.03);
   z-index: 0;
-  pointer-events: none; /* не заважає клікам */
+  pointer-events: none;
 }
 
 /* === ВМІСТ ПОВЕРХ ШАРУ === */
