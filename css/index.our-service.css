@@ -73,7 +73,7 @@
   color: var(--color-secondary);
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 42px;
+  font-size: 35px;
   max-width: 800px;
   z-index: 3;
 }
@@ -87,7 +87,7 @@
   align-items: flex-start;
   gap: 12px;
   margin: 0;
-  font-size: 30px;
+  font-size: 25px;
   z-index: 3;
 }
 
@@ -133,7 +133,7 @@
   transform: translateX(3px);
 }
 
-/* === ПРАВА КОЛОНКА === */
+/* === ПРАВА КОЛОНКА ТЕКСТ=== */
 .slide__content {
   grid-column: 2;
   grid-row: 2;
@@ -143,7 +143,7 @@
   align-items: flex-end;
   gap: 20px;
   line-height: 1.6;
-  font-size: 30px;
+  font-size: 23px;
   text-align: right;
   box-sizing: border-box;
   padding-right: 40px;
@@ -166,7 +166,7 @@
 
 /* === ТЕКСТ У ПРАВОМУ БЛОЦІ === */
 .slide__content-title {
-  font-size: 35px;
+  font-size: 30px;
   font-weight: 700;
   text-transform: uppercase;
   margin: 0;
