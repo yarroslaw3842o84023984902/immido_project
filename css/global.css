@@ -46,8 +46,8 @@ body::before {
   position: fixed;
   inset: 0;
   background: rgba(255, 255, 255, 0.05); /* 🔹 майже прозорий */
-  backdrop-filter: blur(1.5px) brightness(1.03); /* 🔹 легкий розмитий блиск */
-  -webkit-backdrop-filter: blur(1.5px) brightness(1.03);
+  backdrop-filter: blur(1.5px) brightness(1.23); /* 🔹 легкий розмитий блиск */
+  -webkit-backdrop-filter: blur(1.6px) brightness(1.03);
   z-index: 0;
   pointer-events: none;
 }
