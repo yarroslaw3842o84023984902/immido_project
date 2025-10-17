@@ -13,6 +13,8 @@
 /* === ВМІСТ СЛАЙДЕРА === */
 .slider__track {
   display: grid;
+  background-image: url(/img/yel_circle.jpg);
+  background-size: 170%;
   grid-template-columns: 3fr 2fr;
   grid-template-rows: auto 1fr;
   gap: 24px;
