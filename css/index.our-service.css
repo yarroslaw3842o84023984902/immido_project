@@ -153,6 +153,38 @@
   z-index: 3;
 }
 
+/* === ІНДИКАТОР ПОТОЧНОГО СЛАЙДУ === */
+.slider__indicator {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 6px 16px;
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 15;
+  letter-spacing: 0.05em;
+  transition: opacity 0.4s ease;
+}
+
+.slider__indicator .current {
+  color: var(--color-secondary);
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .slider__indicator {
+    font-size: 16px;
+    bottom: 15px;
+    padding: 4px 12px;
+  }
+}
+
 @keyframes fadeInText {
   from {
     opacity: 0;

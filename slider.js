@@ -4,13 +4,24 @@ const slides = Array.from(slider.querySelectorAll('.slide'));
 const prevBtn = slider.querySelector('.slider__control--prev');
 const nextBtn = slider.querySelector('.slider__control--next');
 
-let currentSlideIndex = 0; // поточна картка
+// === ІНДИКАТОР ===
+const indicator = slider.querySelector('.slider__indicator');
+const currentEl = indicator?.querySelector('.current');
+const totalEl = indicator?.querySelector('.total');
+
+let currentSlideIndex = 0;
+
+// показуємо загальну кількість слайдів (якщо індикатор існує)
+if (totalEl) totalEl.textContent = slides.length;
 
 // === ФУНКЦІЯ РЕНДЕРУ КАРТОК ===
 function renderSlides() {
   slides.forEach((slide, i) => {
     slide.classList.toggle('active', i === currentSlideIndex);
   });
+
+  // оновлюємо цифру поточного слайду
+  if (currentEl) currentEl.textContent = currentSlideIndex + 1;
 }
 
 // === ПЕРЕХІД МІЖ КАРТКАМИ СТРІЛКАМИ ===
