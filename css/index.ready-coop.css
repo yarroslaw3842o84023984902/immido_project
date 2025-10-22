@@ -78,16 +78,18 @@
   padding-left: 4px; /* 🔹 вирівняння з плейсхолдерами */
 }
 
-/* Поля введення */
+/* === ПРОЗОРІ ПОЛЯ ВВЕДЕННЯ === */
 .contact-form input,
 .contact-form textarea {
   width: 100%;
   border: none;
-  border-bottom: 2px solid #ccc;
-  padding: 7px 5px 7px 4px; /* 🔹 однаковий відступ зліва для точного вирівнювання */
+  border-bottom: 2px solid rgba(47, 43, 99, 0.3); /* легкий контур */
+  background: transparent; /* 👈 робить фон прозорим */
+  padding: 8px 6px 8px 4px;
   font-size: 16px;
   outline: none;
-  transition: border-color 0.3s ease;
+  color: var(--color-primary);
+  transition: all 0.3s ease;
   font-family: var(--font-family);
 }
 
