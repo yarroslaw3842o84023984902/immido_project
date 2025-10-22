@@ -2,7 +2,7 @@
   padding: 100px 0;
 }
 
-/* Заголовок залишається як було */
+/* === ЗАГОЛОВОК === */
 .about-us__title {
   font-size: 42px;
   font-weight: 800;
@@ -10,7 +10,7 @@
   text-align: left;
   color: var(--color-primary);
   margin-bottom: 70px;
-  padding-left: 119px; /* залишаємо той самий відступ */
+  padding-left: 119px; /* 👈 той самий відступ, що й у fast__calculation */
 }
 
 /* === GRID === */
@@ -20,12 +20,12 @@
   grid-template-rows: repeat(2, auto);
   gap: 60px 60px;
 
-  /* 👇 Зміщуємо лише грід трохи лівіше, щоб цифра “1” точно вирівнялась під заголовком */
-  padding-left: 119px;
-  margin-left: -12px; /* 🔧 дрібна компенсація (оптичне вирівнювання) */
+  /* 👇 Вирівняно з .focus__mai_trust */
+  padding: 0 119px; /* 👈 чітко як у швидкому прорахунку */
+  box-sizing: border-box;
 
-  max-width: 1400px;
-  margin-right: auto;
+  max-width: 1800px;
+  margin: 0 auto;
   justify-items: start;
   align-items: start;
 }
@@ -67,7 +67,18 @@
   font-weight: 800;
 }
 
-/* === МОБІЛЬНА ВЕРСІЯ === */
+/* === АДАПТИВНІСТЬ === */
+@media (max-width: 1200px) {
+  .about-us__title {
+    padding-left: 80px; /* трохи менший відступ */
+  }
+
+  .stats-grid {
+    padding: 0 80px;
+    gap: 50px;
+  }
+}
+
 @media (max-width: 900px) {
   .about-us__title {
     font-size: 32px;
@@ -80,7 +91,6 @@
     grid-template-rows: auto;
     gap: 40px;
     padding: 0 40px;
-    margin-left: 0; /* повертаємо на мобільному */
   }
 
   .stats-card--empty {
