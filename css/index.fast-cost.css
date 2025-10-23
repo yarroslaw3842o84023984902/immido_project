@@ -4,20 +4,23 @@
   color: var(--color-primary);
   font-size: 15px;
   font-weight: bold;
-  
-
   flex-wrap: wrap;
   text-transform: uppercase;
   align-items: center;
 
+  /* 🔹 додано шрифт */
+  font-family: var(--font-family);
+  letter-spacing: 0.03em;
 }
-
 
 .fast__calculation-button {
   margin-left: auto;
   margin-right: auto;
   text-transform: uppercase;
   margin-top: 15px;
+
+  /* 🔹 теж той самий шрифт */
+  font-family: var(--font-family);
 }
 
 .fast__calculation-button {
@@ -41,6 +44,7 @@
   text-shadow: none; /* без тіні */
 }
 
+/* === ДЕСКТОП === */
 @media (min-width: 768px) {
   .desktop-only {
     display: inline;
@@ -49,30 +53,29 @@
   .focus__mai_trust-text h2 {
     font-family: var(--font-family);
     font-weight: 550;
-    
-    
   }
-
 
   .focus__mai_trust {
     display: flex;
     text-align: left;
     justify-content: space-between;
     padding: 0 119px;
-
     color: var(--color-primary);
     font-size: 30px;
     margin-top: 60px;
     line-height: 1.1;
     text-transform: uppercase;
+    font-family: var(--font-family); /* 🔹 дублюємо для надійності */
   }
 
   .fast__calculation-button {
-    background-color: var(--color-primary); /* фіолетовий фон */
-    color: var(--text-color); /* білий текст */
-    padding: 25px 40px; /* відступи зверху/знизу і з боків */
-    border-radius: 50px; /* округлені краї */
+    background-color: var(--color-primary);
+    color: var(--text-color);
+    padding: 25px 40px;
+    border-radius: 50px;
     font-size: 20px;
+    font-family: var(--font-family);
+    font-weight: 600;
     text-transform: uppercase;
     cursor: pointer;
     display: inline-block;

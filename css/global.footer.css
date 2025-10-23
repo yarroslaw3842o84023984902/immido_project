@@ -103,7 +103,8 @@
   
   .footer-social img:hover {
     transform: translateY(-3px);
-    background: #fff;
+    background: var(--color-secondary); /* 🔹 лишаємо жовтий */
+    box-shadow: 0 0 10px rgba(255, 194, 14, 0.4); /* легке світіння */
   }
   
   /* === НИЖНІЙ РЯДОК === */

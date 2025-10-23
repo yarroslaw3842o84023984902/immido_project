@@ -5,12 +5,14 @@
   box-sizing: border-box;
 }
 
+/* === ЛОГО === */
 .nav__logo-img {
   width: 250px;
   height: auto;
   margin-bottom: 5px;
 }
 
+/* === МЕНЮ === */
 .nav__menu {
   padding: 0;
   margin: 0;
@@ -25,13 +27,16 @@
 .nav__menu-link {
   text-decoration: none;
   color: var(--text-color);
-  transition: color 0.3s ease;
+  font-weight: 500; /* 🔹 змінив на 500 */
+  letter-spacing: 0.03em;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .nav__menu-link:hover {
   color: var(--color-secondary);
   background-color: transparent;
-  text-shadow: none;
+  text-shadow: 0 0 6px rgba(255, 194, 14, 0.4);
+  font-weight: 500; /* 🔹 змінив на 500 */
 }
 
 /* === ДЕСКТОП === */
@@ -74,23 +79,30 @@
     gap: 6px;
     font-size: 16px;
     color: var(--text-color);
+    font-weight: 500; /* 🔹 змінив на 500 */
+  }
+
+  .nav__menu-link {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 500; /* 🔹 змінив на 500 */
   }
 
   .nav__menu-link:hover {
     color: #ffd700;
-    font-weight: 300;
-    text-shadow: none;
+    text-shadow: 0 0 6px rgba(255, 215, 0, 0.4);
+    font-weight: 500; /* 🔹 змінив на 500 */
   }
 }
 
 /* === МОБІЛЬНА ВЕРСІЯ === */
-@media (max-width: 1056px) {
+@media (max-width: 1300px) {
   .nav {
     height: auto;
     padding: 24px 0;
     text-align: center;
     display: flex;
-    justify-content: center; /* 🟢 центрує контент усередині */
+    justify-content: center;
   }
 
   .nav__container {
@@ -98,7 +110,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: 360px; /* 🟢 обмежує ширину контенту */
+    max-width: 360px;
     width: 100%;
     gap: 20px;
     text-align: center;
@@ -125,6 +137,7 @@
     font-size: 18px;
     text-transform: uppercase;
     color: var(--text-color);
+    font-weight: 500; /* 🔹 змінив на 500 */
   }
 
   .nav__right {
@@ -137,6 +150,7 @@
   .phone-number {
     font-size: 16px;
     color: var(--text-color);
+    font-weight: 500; /* 🔹 змінив на 500 */
   }
 
   .language-selector {

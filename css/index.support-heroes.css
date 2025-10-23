@@ -8,54 +8,54 @@
     justify-content: flex-end;
   }
   
-  /* прапор — залишаємо більший */
+  /* 🟦 прапор — збільшений */
   .support-ua-flag {
-    width: 80px;
+    width: 95px; /* 🔹 було 80px */
     height: auto;
     cursor: pointer;
     transition: transform 0.3s ease;
   }
   
-  /* кнопка — компактніша */
+  /* 🟡 кнопка — ще компактніша */
   .support-ua-btn {
-    background-color: #2F2B63; /* темно-синій */
+    background-color: #2F2B63;
     color: #ffffff;
     font-family: "Crimson Pro", serif;
     font-weight: 700;
-    font-size: 15px; /* 🔹 менше було 18px */
+    font-size: 14px; /* 🔹 трохи менше */
     letter-spacing: 0.03em;
     text-transform: uppercase;
     text-decoration: none;
-    padding: 12px 26px; /* 🔹 зменшено відступи */
-    border-radius: 50px;
+    padding: 10px 20px; /* 🔹 зменшені відступи */
+    border-radius: 40px; /* 🔹 менше, щоб виглядала витонченіше */
     margin-right: 12px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
     opacity: 0;
     transform: translateX(20px);
     pointer-events: none;
     transition: all 0.4s ease;
   }
   
-  /* коли наводиш на прапор або кнопку */
+  /* 🟢 показує кнопку при наведенні */
   .support-ua-wrapper:hover .support-ua-btn {
     opacity: 1;
     transform: translateX(0);
     pointer-events: auto;
   }
   
-  /* ефект наведення */
+  /* 🟡 ефект при наведенні */
   .support-ua-btn:hover {
     background-color: #FFC20E;
     color: #2F2B63;
-    transform: scale(1.05);
+    transform: scale(1.07);
   }
   
-  /* при наведенні прапор трохи збільшується */
+  /* 🇺🇦 при наведенні прапор збільшується */
   .support-ua-wrapper:hover .support-ua-flag {
-    transform: scale(1.2);
+    transform: scale(1.25);
   }
   
-  /* адаптив */
+  /* 📱 адаптив */
   @media (max-width: 768px) {
     .support-ua-wrapper {
       bottom: 15px;
@@ -63,11 +63,11 @@
     }
   
     .support-ua-btn {
-      font-size: 13px;
-      padding: 10px 20px;
+      font-size: 12px;
+      padding: 8px 16px;
     }
   
     .support-ua-flag {
-      width: 60px;
+      width: 70px; /* 🔹 все ще трохи більший, щоб гарно виглядало */
     }
   }
