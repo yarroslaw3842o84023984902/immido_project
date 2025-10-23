@@ -36,13 +36,12 @@
   color: var(--color-secondary);
   background-color: transparent;
   text-shadow: 0 0 6px rgba(255, 194, 14, 0.4);
-  font-weight: 500;
 }
 
 /* === КНОПКА ВИБОРУ МОВИ === */
 .language-selector {
   position: relative;
-  z-index: 100; /* ✅ додано, щоб меню не ховалося під інші елементи */
+  z-index: 9999;
 }
 
 #language-button {
@@ -86,31 +85,32 @@
 /* === СПИСОК МОВ === */
 #language-list {
   position: absolute;
-  top: 50px;
+  top: 48px;
   right: 0;
-  background-color: #2f2b63; /* ✅ замість var(--color-primary), бо вона не визначена */
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: #2f2b63;
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 10px;
   list-style: none;
-  padding: 8px 0;
+  padding: 6px 0;
   margin: 0;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-  display: none;
-  z-index: 9999; /* ✅ щоб завжди було поверх усього */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+
+  /* 🔹 початково приховано */
+  pointer-events: none;
   opacity: 0;
-  transform: translateY(-5px);
+  transform: translateY(-8px);
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-/* ✅ коли меню активне (додається JS клас .open) */
-#language-list.open {
-  display: block !important;
+/* 🔹 при відкритті */
+.language-selector.open #language-list {
   opacity: 1;
   transform: translateY(0);
+  pointer-events: auto;
 }
 
 #language-list li {
-  padding: 4px 16px;
+  padding: 2px 16px;
 }
 
 #language-list button {
@@ -123,20 +123,22 @@
   cursor: pointer;
   text-align: left;
   width: 100%;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 #language-list button:hover {
   color: var(--color-secondary);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* === АДАПТИВ === */
 @media (max-width: 1056px) {
   #language-list {
     right: 50%;
-    transform: translateX(50%) translateY(-5px);
+    transform: translateX(50%) translateY(-8px);
   }
-  #language-list.open {
+
+  .language-selector.open #language-list {
     transform: translateX(50%) translateY(0);
   }
 }
@@ -153,7 +155,6 @@
 
   .nav {
     height: 100px;
-    padding: 16px 0;
   }
 
   .nav__logo {
@@ -193,7 +194,6 @@
   .nav__menu-link:hover {
     color: #ffd700;
     text-shadow: 0 0 6px rgba(255, 215, 0, 0.4);
-    font-weight: 500;
   }
 }
 
