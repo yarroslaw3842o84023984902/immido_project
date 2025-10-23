@@ -1,34 +1,40 @@
 .nav {
   background-color: #2f2b63;
-  padding: 16px 0px;
-  width: 100%; /* займає всю ширину */
+  padding: 16px 0;
+  width: 100%;
   box-sizing: border-box;
 }
+
 .nav__logo-img {
-  width: 250px; /* або будь-який інший розмір */
-  height: 45px; /* автоматично підлаштовує висоту */
+  width: 250px;
+  height: auto;
   margin-bottom: 5px;
 }
+
 .nav__menu {
   padding: 0;
   margin: 0;
 }
+
 .nav__menu-item {
   display: flex;
   flex-direction: column;
-  padding-left: 0px;
+  padding-left: 0;
 }
 
 .nav__menu-link {
-  text-decoration: none; /* прибирає підкреслення */
-  color: var(--text-color); /*колір*/
-}
-.nav__menu-link:hover {
-  color: var(--color-secondary); /* жовтий текст */
-  background-color: transparent; /* прозорий фон */
-  text-shadow: none; /* без тіні */
+  text-decoration: none;
+  color: var(--text-color);
+  transition: color 0.3s ease;
 }
 
+.nav__menu-link:hover {
+  color: var(--color-secondary);
+  background-color: transparent;
+  text-shadow: none;
+}
+
+/* === ДЕСКТОП === */
 @media (min-width: 1057px) {
   .nav__container {
     display: flex;
@@ -40,9 +46,7 @@
 
   .nav {
     height: 100px;
-    padding: 16px 0px;
-    width: 100%; /* займає всю ширину */
-    box-sizing: border-box;
+    padding: 16px 0;
   }
 
   .nav__logo {
@@ -55,18 +59,6 @@
     justify-content: center;
     gap: 30px;
     list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .nav__menu-item {
-    padding: 0;
-  }
-
-  .nav__menu-link {
-    text-decoration: none;
-    color: var(--text-color);
-    font-family: var(--font-family);
   }
 
   .nav__right {
@@ -85,8 +77,69 @@
   }
 
   .nav__menu-link:hover {
-    color: #ffd700; /* жовтий текст */
+    color: #ffd700;
     font-weight: 300;
-    text-shadow: none; /* без тіні */
+    text-shadow: none;
+  }
+}
+
+/* === МОБІЛЬНА ВЕРСІЯ === */
+@media (max-width: 1056px) {
+  .nav {
+    height: auto;
+    padding: 24px 0;
+    text-align: center;
+    display: flex;
+    justify-content: center; /* 🟢 центрує контент усередині */
+  }
+
+  .nav__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 360px; /* 🟢 обмежує ширину контенту */
+    width: 100%;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .nav__logo-img {
+    width: 180px;
+    margin: 0 auto 10px;
+    display: block;
+  }
+
+  .nav__menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  .nav__menu-link {
+    font-size: 18px;
+    text-transform: uppercase;
+    color: var(--text-color);
+  }
+
+  .nav__right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .phone-number {
+    font-size: 16px;
+    color: var(--text-color);
+  }
+
+  .language-selector {
+    margin: 0 auto;
   }
 }
