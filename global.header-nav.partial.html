@@ -24,13 +24,63 @@
         0 800 750 040
       </span>
 
+      <!-- 🔹 ВИБІР МОВИ -->
       <div class="language-selector">
-        <button id="language-button">🌐</button>
-        <ul id="language-list" style="display: none">
-          <li><button onclick="setLanguage('uk')">🇺🇦 Українська</button></li>
-          <li><button onclick="setLanguage('en')">🇬🇧 English</button></li>
+        <button id="language-button">
+          <img src="img/UAiconBut.png" alt="Ukrainian flag" class="lang-flag" />
+          <span class="lang-arrow"></span>
+        </button>
+        <!-- ❌ Прибрав inline style -->
+        <ul id="language-list">
+          <li><button onclick="setLanguage('uk')">🇺🇦 UA</button></li>
+          <li><button onclick="setLanguage('en')">🇬🇧 EN</button></li>
         </ul>
       </div>
     </div>
   </div>
 </nav>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const langBtn = document.getElementById("language-button");
+    const langList = document.getElementById("language-list");
+    const flagImg = langBtn.querySelector("img");
+
+    // 🔹 Відкрити / закрити список мов
+    langBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = langList.classList.contains("open");
+      langList.classList.toggle("open", !isOpen);
+      langBtn.classList.toggle("open", !isOpen);
+    });
+
+    // 🔹 Закрити при кліку поза селектором
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".language-selector")) {
+        langList.classList.remove("open");
+        langBtn.classList.remove("open");
+      }
+    });
+
+    // 🔹 Зміна прапора
+    window.setLanguage = function(lang) {
+      langList.classList.remove("open");
+      langBtn.classList.remove("open");
+      if (lang === "en") {
+        flagImg.src = "img/UKiconBut.png";
+        flagImg.alt = "English flag";
+      } else {
+        flagImg.src = "img/UAiconBut.png";
+        flagImg.alt = "Ukrainian flag";
+      }
+      localStorage.setItem("lang", lang);
+    };
+
+    // 🔹 Відновлення вибору
+    const savedLang = localStorage.getItem("lang");
+    if (savedLang === "en") {
+      flagImg.src = "img/UKiconBut.png";
+      flagImg.alt = "English flag";
+    }
+  });
+</script>

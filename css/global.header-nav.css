@@ -27,7 +27,7 @@
 .nav__menu-link {
   text-decoration: none;
   color: var(--text-color);
-  font-weight: 500; /* 🔹 змінив на 500 */
+  font-weight: 500;
   letter-spacing: 0.03em;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
@@ -36,7 +36,109 @@
   color: var(--color-secondary);
   background-color: transparent;
   text-shadow: 0 0 6px rgba(255, 194, 14, 0.4);
-  font-weight: 500; /* 🔹 змінив на 500 */
+  font-weight: 500;
+}
+
+/* === КНОПКА ВИБОРУ МОВИ === */
+.language-selector {
+  position: relative;
+  z-index: 100; /* ✅ додано, щоб меню не ховалося під інші елементи */
+}
+
+#language-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 16px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#language-button:hover {
+  border-color: var(--color-secondary);
+  transform: scale(1.05);
+}
+
+.lang-flag {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: block;
+}
+
+.lang-arrow {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+#language-button.open .lang-arrow {
+  transform: rotate(-135deg);
+}
+
+/* === СПИСОК МОВ === */
+#language-list {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #2f2b63; /* ✅ замість var(--color-primary), бо вона не визначена */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  display: none;
+  z-index: 9999; /* ✅ щоб завжди було поверх усього */
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* ✅ коли меню активне (додається JS клас .open) */
+#language-list.open {
+  display: block !important;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#language-list li {
+  padding: 4px 16px;
+}
+
+#language-list button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: color 0.3s ease;
+}
+
+#language-list button:hover {
+  color: var(--color-secondary);
+}
+
+/* === АДАПТИВ === */
+@media (max-width: 1056px) {
+  #language-list {
+    right: 50%;
+    transform: translateX(50%) translateY(-5px);
+  }
+  #language-list.open {
+    transform: translateX(50%) translateY(0);
+  }
 }
 
 /* === ДЕСКТОП === */
@@ -79,19 +181,19 @@
     gap: 6px;
     font-size: 16px;
     color: var(--text-color);
-    font-weight: 500; /* 🔹 змінив на 500 */
+    font-weight: 500;
   }
 
   .nav__menu-link {
     font-size: 16px;
     text-transform: uppercase;
-    font-weight: 500; /* 🔹 змінив на 500 */
+    font-weight: 500;
   }
 
   .nav__menu-link:hover {
     color: #ffd700;
     text-shadow: 0 0 6px rgba(255, 215, 0, 0.4);
-    font-weight: 500; /* 🔹 змінив на 500 */
+    font-weight: 500;
   }
 }
 
@@ -137,7 +239,7 @@
     font-size: 18px;
     text-transform: uppercase;
     color: var(--text-color);
-    font-weight: 500; /* 🔹 змінив на 500 */
+    font-weight: 500;
   }
 
   .nav__right {
@@ -150,7 +252,7 @@
   .phone-number {
     font-size: 16px;
     color: var(--text-color);
-    font-weight: 500; /* 🔹 змінив на 500 */
+    font-weight: 500;
   }
 
   .language-selector {
