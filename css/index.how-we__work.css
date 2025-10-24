@@ -1,155 +1,155 @@
 .we-work__steps {
-display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 40px 20px;
-  position: relative;
-  min-height: 300px;
-  border-radius: 12px;
-  overflow: hidden;
   display: flex;
-  align-items: flex-start;
-  padding: 20px;
-  font-size: 16px;
-  font-weight: bold;
-}
-.step-card {
-    width: 100%;
-    background-color: #e5e5e5;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px 20px;
+    position: relative;
+    min-height: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
     padding: 20px;
-    border-radius: 10px;
-    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .step-card {
+      width: 100%;
+      background-color: #e5e5e5;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: left;
+    }
+    
+    .step-card--intro,
+    .step-card--empty {
+      background-color: transparent;
+    }
+    
+    .step-card__number {
+      margin-bottom: 20px;
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--color-primary);
+    }
+    
+    .step-card__title {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--color-primary);
+      margin-bottom: 8px;
+    }
+    
+    .step-card__description {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--color-third);
+    }
+    
+    /* Спеціальні кольори */
+    .step-card--highlight {
+      background-color: var(--color-secondary);
+      color: var(--color-primary);
+    }
+    
+    .step-card--highlight .step-card__description,
+    .step-card--intro .step-card__description {
+      color: var(--color-primary);
+    }
+    
+    .step-card__introduction {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--color-primary);
+      margin-bottom: 10px;
+    }
+  
+    .step-card--empty {
+      display: none;
+    }
+  
+  
+  
+  @media (min-width: 768px) {
+  
+      .step-card--empty {
+          display: block;
+          background-color: transparent;
+        }
+        
+  .we-work__steps {
+      display: grid;
+      gap: 60px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      padding: 50px 119px;
+      max-width: 1300px;
+      width: 100%;
+      justify-items: center;     /* Центрує контент усередині карток */
+      justify-content: center;   /* Центрує самі картки в межах контейнера */
+      margin: 110px auto;    
+  
   }
   
-  .step-card--intro,
-  .step-card--empty {
-    background-color: transparent;
+  
+  .step-card {
+      border-radius: 10px;
+      text-align: left;
+      padding: 25px 25px;
+      width: 300px;
+      height: 250px;
+      background-color: #e5e5e5;
+  
+  }
+  .step-card--empty,
+  .step-card--intro {
+      background-color: transparent;
   }
   
   .step-card__number {
-    margin-bottom: 20px;
-    font-size: 36px;
-    font-weight: 900;
-    color: var(--color-primary);
+      margin-bottom: 40px;
+      font-size: 45px;
+      font-weight: 900;
+      color: var(--color-primary);
+  
+  
   }
   
   .step-card__title {
-    font-size: 18px;
-    font-weight: 900;
-    color: var(--color-primary);
-    margin-bottom: 8px;
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--color-primary);
+  
+  }
+  
+  
+  .step-card--highlight {
+      background-color: var(--color-secondary);
+      color: var(--color-primary) !important;
+  
+  }
+  
+  
+  .step-card__introduction {
+      font-size: 30px;
+      color: var(--color-primary);
   }
   
   .step-card__description {
-    font-size: 14px;
-    font-weight: 300;
-    color: var(--color-third);
+      color: var(--color-third);
+      font-weight: 300;
   }
-  
-  /* Спеціальні кольори */
-  .step-card--highlight {
-    background-color: var(--color-secondary);
-    color: var(--color-primary);
-  }
-  
-  .step-card--highlight .step-card__description,
+  /* Опис для картки "ЯК МИ ПРАЦЮЄМО" */
   .step-card--intro .step-card__description {
-    color: var(--color-primary);
+      color: var(--color-primary); /* або будь-який інший */
   }
-  
   .step-card__introduction {
-    font-size: 24px;
-    font-weight: 900;
-    color: var(--color-primary);
-    margin-bottom: 10px;
-  }
-
-  .step-card--empty {
-    display: none;
-  }
-
-
-
-@media (min-width: 768px) {
-
-    .step-card--empty {
-        display: block;
-        background-color: transparent;
-      }
-      
-.we-work__steps {
-    display: grid;
-    gap: 60px;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    padding: 50px 119px;
-    max-width: 1300px;
-    width: 100%;
-    justify-items: center;     /* Центрує контент усередині карток */
-    justify-content: center;   /* Центрує самі картки в межах контейнера */
-    margin: 110px auto;    
-
-}
-
-
-.step-card {
-    border-radius: 10px;
-    text-align: left;
-    padding: 25px 25px;
-    width: 300px;
-    height: 250px;
-    background-color: #e5e5e5;
-
-}
-.step-card--empty,
-.step-card--intro {
-    background-color: transparent;
-}
-
-.step-card__number {
-    margin-bottom: 40px;
-    font-size: 45px;
-    font-weight: 900;
-    color: var(--color-primary);
-
-
-}
-
-.step-card__title {
-    font-size: 20px;
-    font-weight: 900;
-    color: var(--color-primary);
-
-}
-
-
-.step-card--highlight {
-    background-color: var(--color-secondary);
-    color: var(--color-primary) !important;
-
-}
-
-
-.step-card__introduction {
-    font-size: 30px;
-    color: var(--color-primary);
-}
-
-.step-card__description {
-    color: var(--color-third);
-    font-weight: 300;
-}
-/* Опис для картки "ЯК МИ ПРАЦЮЄМО" */
-.step-card--intro .step-card__description {
-    color: var(--color-primary); /* або будь-який інший */
-}
-.step-card__introduction {
-    font-size: 36px;
-
-}
+      font-size: 36px;
   
-  /* Опис для картки 02 "Планування" */
-  .step-card--highlight .step-card__description {
-    color: var(--color-primary); /* або будь-який інший */
   }
-
-}
+    
+    /* Опис для картки 02 "Планування" */
+    .step-card--highlight .step-card__description {
+      color: var(--color-primary); /* або будь-який інший */
+    }
+  
+  }
