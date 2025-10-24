@@ -46,19 +46,21 @@ function setLanguage(lang) {
   localStorage.setItem("lang", lang);
   document.documentElement.lang = lang;
 
-  // --- визначаємо сторінку ---
   const current = window.location.pathname;
-  let target;
+  const isEnglish = current.includes("index.en.html");
+  const isUkrainian = current.includes("index.html") || current === "/" || current === "/index.html";
 
-  if (lang === "en" && !current.includes("index.en.html")) {
+  let target = null;
+
+  if (lang === "en" && !isEnglish) {
     target = "index.en.html";
-  } else if (lang === "uk" && current.includes("index.en.html")) {
+  } else if (lang === "uk" && !isUkrainian) {
     target = "index.html";
   }
 
   if (target) {
     console.log(`🔁 Redirecting to: ${target}`);
-    window.location.href = target;
+    window.location.replace(target); // 🔄 без створення історії переходів
   } else {
     console.log("✅ Already correct page — no redirect");
   }
@@ -67,18 +69,21 @@ function setLanguage(lang) {
 // --- подія при старті ---
 document.addEventListener("DOMContentLoaded", () => {
   const savedLang = localStorage.getItem("lang") || "uk";
-  const current = window.location.pathname;
+  const path = window.location.pathname.toLowerCase();
 
-  const isMain = current === "/" || current.endsWith("index.html");
-  const isEnglish = current.endsWith("index.en.html");
+  const isEnglishPage = path.includes("index.en");
+  const isUkrainianPage = path === "/" || path.includes("index") && !path.includes("index.en");
 
   // 🚫 не створюємо петлі
-  if (savedLang === "en" && !isEnglish) {
-    window.location.href = "index.en.html";
+  if (savedLang === "en" && !isEnglishPage) {
+    console.log("🔁 Redirecting to English version");
+    window.location.replace("index.en.html");
     return;
   }
-  if (savedLang === "uk" && !isMain) {
-    window.location.href = "index.html";
+
+  if (savedLang === "uk" && !isUkrainianPage) {
+    console.log("🔁 Redirecting to Ukrainian version");
+    window.location.replace("index.html");
     return;
   }
 
@@ -87,10 +92,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const img = btn?.querySelector("img");
   if (img) {
     img.src = savedLang === "en" ? "img/ENiconBut.png" : "img/UAiconBut.png";
+    img.alt = savedLang === "en" ? "English flag" : "Ukrainian flag";
   }
 
   initLanguageDropdown();
 });
+
 
 // --- повторне підключення після HTMX-заміни ---
 document.body.addEventListener("htmx:afterSwap", (e) => {

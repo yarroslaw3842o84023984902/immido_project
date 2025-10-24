@@ -47,12 +47,13 @@
 #language-button {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+  justify-content: center;   /* 🔹 центр прапора і стрілки */
+  gap: 8px;                  /* трохи менша відстань */
   background-color: transparent;
   border: 2px solid #ffffff;
-  border-radius: 16px;
-  padding: 6px 14px;
+  border-radius: 18px;
+  padding: 6px 12px;         /* 🔹 менша ширина */
+  min-width: 70px;           /* обмеження, щоб не стискалось надто сильно */
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -62,16 +63,22 @@
   transform: scale(1.05);
 }
 
+/* === ПРАПОРЕЦЬ — більший, чіткий, центрований === */
 .lang-flag {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
+  height: 30px;           /* 🔹 збільшено висоту */
+  width: auto;
+  aspect-ratio: 3 / 2;    /* правильна пропорція */
+  border-radius: 4px;
   display: block;
+  object-fit: contain;
+  overflow: visible;
+  background-color: transparent;
 }
 
+/* === СТРІЛКА — трохи менша, щоб не відволікала === */
 .lang-arrow {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-right: 2px solid #ffffff;
   border-bottom: 2px solid #ffffff;
   transform: rotate(45deg);
@@ -85,7 +92,7 @@
 /* === СПИСОК МОВ === */
 #language-list {
   position: absolute;
-  top: 48px;
+  top: 52px;
   right: 0;
   background-color: #2f2b63;
   border: 1px solid rgba(255, 255, 255, 0.25);
@@ -95,7 +102,6 @@
   margin: 0;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 
-  /* 🔹 початково приховано */
   pointer-events: none;
   opacity: 0;
   transform: translateY(-8px);
@@ -110,7 +116,7 @@
 }
 
 #language-list li {
-  padding: 2px 16px;
+  padding: 4px 16px;
 }
 
 #language-list button {
