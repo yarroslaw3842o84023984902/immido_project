@@ -1,73 +1,75 @@
+/* === 🇺🇦 Кнопка підтримки України === */
 .support-ua-wrapper {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+  position: fixed;
+  bottom: 30px;  /* трохи вище */
+  right: 30px;
+  z-index: 99999; /* 🔹 поверх усього, навіть футера */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  pointer-events: auto;
+}
+
+/* 🟡 Кнопка */
+.support-ua-btn {
+  background-color: #2F2B63;
+  color: #ffffff;
+  font-family: "Crimson Pro", serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 40px;
+  margin-right: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateX(20px);
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+/* 🟢 Показує кнопку при наведенні */
+.support-ua-wrapper:hover .support-ua-btn {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* ✨ Ефект при наведенні */
+.support-ua-btn:hover {
+  background-color: #FFC20E;
+  color: #2F2B63;
+  transform: scale(1.07);
+}
+
+/* 🟦 Прапор */
+.support-ua-flag {
+  width: 95px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* 🇺🇦 Збільшення прапора при наведенні */
+.support-ua-wrapper:hover .support-ua-flag {
+  transform: scale(1.25);
+}
+
+/* === 📱 Адаптив === */
+@media (max-width: 768px) {
+  .support-ua-wrapper {
+    bottom: 20px;  /* трішки вище для зручності */
+    right: 15px;
   }
-  
-  /* 🟦 прапор — збільшений */
-  .support-ua-flag {
-    width: 95px; /* 🔹 було 80px */
-    height: auto;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  
-  /* 🟡 кнопка — ще компактніша */
+
   .support-ua-btn {
-    background-color: #2F2B63;
-    color: #ffffff;
-    font-family: "Crimson Pro", serif;
-    font-weight: 700;
-    font-size: 14px; /* 🔹 трохи менше */
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 10px 20px; /* 🔹 зменшені відступи */
-    border-radius: 40px; /* 🔹 менше, щоб виглядала витонченіше */
-    margin-right: 12px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-    opacity: 0;
-    transform: translateX(20px);
-    pointer-events: none;
-    transition: all 0.4s ease;
+    font-size: 12px;
+    padding: 8px 16px;
   }
-  
-  /* 🟢 показує кнопку при наведенні */
-  .support-ua-wrapper:hover .support-ua-btn {
-    opacity: 1;
-    transform: translateX(0);
-    pointer-events: auto;
+
+  .support-ua-flag {
+    width: 70px;
   }
-  
-  /* 🟡 ефект при наведенні */
-  .support-ua-btn:hover {
-    background-color: #FFC20E;
-    color: #2F2B63;
-    transform: scale(1.07);
-  }
-  
-  /* 🇺🇦 при наведенні прапор збільшується */
-  .support-ua-wrapper:hover .support-ua-flag {
-    transform: scale(1.25);
-  }
-  
-  /* 📱 адаптив */
-  @media (max-width: 768px) {
-    .support-ua-wrapper {
-      bottom: 15px;
-      right: 15px;
-    }
-  
-    .support-ua-btn {
-      font-size: 12px;
-      padding: 8px 16px;
-    }
-  
-    .support-ua-flag {
-      width: 70px; /* 🔹 все ще трохи більший, щоб гарно виглядало */
-    }
-  }
+}
