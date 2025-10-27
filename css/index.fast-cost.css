@@ -28,7 +28,7 @@
   cursor: pointer;
   display: inline-block;
   border: none;
-  text-decoration: none; /* 🔹 прибирає підкреслення */
+  text-decoration: none; /* прибирає підкреслення */
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.25s ease;
   text-shadow: none;
 }
@@ -37,7 +37,7 @@
   background-color: var(--color-secondary); /* жовтий фон */
   color: var(--color-primary); /* фіолетовий текст */
   text-shadow: none;
-  transform: scale(1.05); /* 🔹 легка анімація */
+  transform: scale(1.05); /* легка анімація */
 }
 
 /* === ДЕСКТОП === */
@@ -75,7 +75,7 @@
     text-transform: uppercase;
     cursor: pointer;
     display: inline-block;
-    text-decoration: none; /* 🔹 без підкреслення */
+    text-decoration: none; /* без підкреслення */
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.25s ease;
     margin-top: auto;
   }

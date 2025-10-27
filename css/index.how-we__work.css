@@ -140,7 +140,7 @@
   }
   /* Опис для картки "ЯК МИ ПРАЦЮЄМО" */
   .step-card--intro .step-card__description {
-      color: var(--color-primary); /* або будь-який інший */
+      color: var(--color-primary); 
   }
   .step-card__introduction {
       font-size: 36px;
@@ -149,7 +149,7 @@
     
     /* Опис для картки 02 "Планування" */
     .step-card--highlight .step-card__description {
-      color: var(--color-primary); /* або будь-який інший */
+      color: var(--color-primary); 
     }
   
   }

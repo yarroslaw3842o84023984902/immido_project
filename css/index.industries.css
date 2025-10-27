@@ -92,9 +92,9 @@
     transition: all 0.3s ease;
     width: 90%;
     max-width: 300px;
-    word-wrap: break-word;        /* 🔹 переносить слова */
-    overflow-wrap: break-word;    /* 🔹 підтримка Safari */
-    white-space: normal;          /* 🔹 дозволяє перенос */
+    word-wrap: break-word;        /* переносить слова */
+    overflow-wrap: break-word;    /* підтримка Safari */
+    white-space: normal;          /* дозволяє перенос */
     box-sizing: border-box;
   }
 

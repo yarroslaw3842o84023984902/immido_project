@@ -222,7 +222,7 @@
     overflow: hidden;
     background-color: var(--color-primary);
     position: relative; /* фіксуємо для абсолютного позиціонування слайдів */
-    min-height: 520px;  /* 🔹 постійна висота, щоб не стрибало */
+    min-height: 520px;  /* постійна висота, щоб не стрибало */
   }
 
   .slider__track {
@@ -237,12 +237,12 @@
   }
 
   .slide {
-    position: absolute; /* 🔹 всі слайди накладаються один на одного */
+    position: absolute; /* всі слайди накладаються один на одного */
     inset: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* 🔹 рівномірно по центру */
+    justify-content: center; /* рівномірно по центру */
     text-align: center;
     padding: 30px 20px;
     opacity: 0;
@@ -294,7 +294,7 @@
 
   .slider__control {
     font-size: 50px;
-    top: 50%; /* 🔹 центруємо стрілки */
+    top: 50%; /* центруємо стрілки */
     transform: translateY(-50%);
     color: var(--color-secondary);
   }
