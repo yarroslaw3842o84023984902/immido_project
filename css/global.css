@@ -1,10 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
-
 /* === RESET === */
-
-
 *,
 *::before,
 *::after {
@@ -29,40 +26,49 @@
   --text-color: hwb(0 100% 0%);
 }
 
-/* === ГЛОБАЛЬНИЙ ФОН === */
+/* === ГЛОБАЛЬНИЙ ФОН ЯК ШАР === */
 html, body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
-  background-color: #f8f3ed;
-  background-image: url("/img/lines_second.jpg");
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-attachment: fixed;
   position: relative;
   scroll-behavior: smooth;
+  background: none !important; /* 🔧 очищає можливі конфлікти */
 }
 
-/* === НАПІВПРОЗОРИЙ БІЛИЙ ШАР НА ВСЬОМУ САЙТІ === */
+/* 🔧 Фоновий шар, який перекриває все */
 body::before {
   content: "";
   position: fixed;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.05); /* 🔹 майже прозорий */
-  backdrop-filter: blur(1.5px) brightness(1.23); /* 🔹 легкий розмитий блиск */
-  -webkit-backdrop-filter: blur(1.6px) brightness(1.03);
-  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/img/lines_second.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  z-index: -9999; /* 🔧 найнижчий шар */
   pointer-events: none;
 }
 
-/* === ВМІСТ ПОВЕРХ ШАРУ === */
+/* === НАПІВПРОЗОРИЙ БЛИСК НА ВСЬОМУ САЙТІ === */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(1.5px) brightness(1.23);
+  -webkit-backdrop-filter: blur(1.6px) brightness(1.03);
+  z-index: -9998;
+  pointer-events: none;
+}
+
+/* === ВМІСТ ПОВЕРХ ШАРІВ === */
 body > * {
   position: relative;
   z-index: 1;
 }
-
-
 
 /* === ЗОБРАЖЕННЯ === */
 img {
