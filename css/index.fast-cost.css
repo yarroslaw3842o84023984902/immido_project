@@ -1,3 +1,4 @@
+/* === ГОЛОВНИЙ БЛОК === */
 .focus__mai_trust {
   text-align: center;
   padding: 60px 20px;
@@ -7,41 +8,36 @@
   flex-wrap: wrap;
   text-transform: uppercase;
   align-items: center;
-
-  /* 🔹 додано шрифт */
   font-family: var(--font-family);
   letter-spacing: 0.03em;
 }
 
+/* === КНОПКА === */
 .fast__calculation-button {
   margin-left: auto;
   margin-right: auto;
-  text-transform: uppercase;
   margin-top: 15px;
-
-  /* 🔹 теж той самий шрифт */
+  text-transform: uppercase;
   font-family: var(--font-family);
-}
-
-.fast__calculation-button {
   background-color: var(--color-primary); /* фіолетовий фон */
   color: var(--text-color); /* білий текст */
   padding: 15px 30px;
   border-radius: 50px;
   font-weight: bold;
   font-size: 15px;
-  text-transform: uppercase;
   cursor: pointer;
   display: inline-block;
   border: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  text-shadow: none; /* без світіння */
+  text-decoration: none; /* 🔹 прибирає підкреслення */
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.25s ease;
+  text-shadow: none;
 }
 
 .fast__calculation-button:hover {
   background-color: var(--color-secondary); /* жовтий фон */
   color: var(--color-primary); /* фіолетовий текст */
-  text-shadow: none; /* без тіні */
+  text-shadow: none;
+  transform: scale(1.05); /* 🔹 легка анімація */
 }
 
 /* === ДЕСКТОП === */
@@ -65,7 +61,7 @@
     margin-top: 60px;
     line-height: 1.1;
     text-transform: uppercase;
-    font-family: var(--font-family); /* 🔹 дублюємо для надійності */
+    font-family: var(--font-family);
   }
 
   .fast__calculation-button {
@@ -79,7 +75,8 @@
     text-transform: uppercase;
     cursor: pointer;
     display: inline-block;
-    transition: background-color 0.3s ease;
+    text-decoration: none; /* 🔹 без підкреслення */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.25s ease;
     margin-top: auto;
   }
 
@@ -87,5 +84,11 @@
     background-color: var(--color-secondary);
     color: var(--color-primary);
     text-shadow: none;
+    transform: scale(1.05);
   }
+}
+
+/* === ПЛАВНА ПРОКРУТКА ДО РОЗДІЛУ === */
+html {
+  scroll-behavior: smooth;
 }

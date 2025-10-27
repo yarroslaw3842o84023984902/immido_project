@@ -1,3 +1,17 @@
+// 🔹 окремо — функція для оновлення прапорця
+function updateFlagIcon(lang = localStorage.getItem("lang") || "uk") {
+  const img = document.querySelector("#language-button img");
+  if (!img) return;
+
+  if (lang === "en") {
+    img.src = "img/ENiconBut.png";
+    img.alt = "English flag";
+  } else {
+    img.src = "img/UAiconBut.png";
+    img.alt = "Ukrainian flag";
+  }
+}
+
 function initLanguageDropdown() {
   const selector = document.querySelector(".language-selector");
   const btn = document.getElementById("language-button");
@@ -31,24 +45,23 @@ function initLanguageDropdown() {
     });
   });
 
+  // 🔧 оновлюємо прапорець при ініціалізації
+  updateFlagIcon();
+
   console.log("✅ Language dropdown initialized");
 }
 
 function setLanguage(lang) {
-  const btn = document.getElementById("language-button");
-  const img = btn?.querySelector("img");
-
-  if (img) {
-    img.src = lang === "en" ? "img/ENiconBut.png" : "img/UAiconBut.png";
-    img.alt = lang === "en" ? "English flag" : "Ukrainian flag";
-  }
+  // 🔧 оновлення прапорця
+  updateFlagIcon(lang);
 
   localStorage.setItem("lang", lang);
   document.documentElement.lang = lang;
 
   const current = window.location.pathname;
   const isEnglish = current.includes("index.en.html");
-  const isUkrainian = current.includes("index.html") || current === "/" || current === "/index.html";
+  const isUkrainian =
+    current.includes("index.html") || current === "/" || current === "/index.html";
 
   let target = null;
 
@@ -72,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const path = window.location.pathname.toLowerCase();
 
   const isEnglishPage = path.includes("index.en");
-  const isUkrainianPage = path === "/" || path.includes("index") && !path.includes("index.en");
+  const isUkrainianPage = path === "/" || (path.includes("index") && !path.includes("index.en"));
 
   // 🚫 не створюємо петлі
   if (savedLang === "en" && !isEnglishPage) {
@@ -87,22 +100,18 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // оновлюємо прапорець
-  const btn = document.getElementById("language-button");
-  const img = btn?.querySelector("img");
-  if (img) {
-    img.src = savedLang === "en" ? "img/ENiconBut.png" : "img/UAiconBut.png";
-    img.alt = savedLang === "en" ? "English flag" : "Ukrainian flag";
-  }
+  // 🔧 оновлюємо прапорець при завантаженні
+  updateFlagIcon(savedLang);
 
   initLanguageDropdown();
 });
-
 
 // --- повторне підключення після HTMX-заміни ---
 document.body.addEventListener("htmx:afterSwap", (e) => {
   if (e.target.matches("nav") || e.target.closest("nav")) {
     console.log("♻️ Reinitializing dropdown after HTMX swap");
     initLanguageDropdown();
+    // 🔧 підстрахуємося ще раз — оновимо прапор
+    updateFlagIcon();
   }
 });

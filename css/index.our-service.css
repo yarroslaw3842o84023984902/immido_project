@@ -221,33 +221,39 @@
     border-radius: 16px;
     overflow: hidden;
     background-color: var(--color-primary);
+    position: relative; /* фіксуємо для абсолютного позиціонування слайдів */
+    min-height: 520px;  /* 🔹 постійна висота, щоб не стрибало */
   }
 
   .slider__track {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 24px;
-    padding: 30px 20px;
-
-    /* 🔹 Фікс фону */
-    background-size: contain;         /* не розтягується */
-    background-repeat: no-repeat;     /* не дублюється */
-    background-position: center top;  /* по центру вгорі */
-    min-height: auto;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+    display: block; /* важливо: більше не flex/grid */
+    padding: 0;
   }
 
   .slide {
-    position: relative;
+    position: absolute; /* 🔹 всі слайди накладаються один на одного */
+    inset: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center; /* 🔹 рівномірно по центру */
     text-align: center;
     padding: 30px 20px;
-    min-height: auto;
-    transform: none !important;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease;
+  }
+
+  .slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
   }
 
   .maint-title-our-service {
@@ -288,7 +294,7 @@
 
   .slider__control {
     font-size: 50px;
-    top: 92%;
+    top: 50%; /* 🔹 центруємо стрілки */
     transform: translateY(-50%);
     color: var(--color-secondary);
   }
@@ -297,15 +303,13 @@
   .slider__control--next { right: 10px; }
 
   .slider__indicator {
-    position: static;
-    margin-top: 15px;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
     background: rgba(0, 0, 0, 0.2);
     font-size: 14px;
     padding: 4px 12px;
+    border-radius: 10px;
   }
-}
-
-@keyframes fadeInText {
-  from { opacity: 0; transform: translateX(30px); }
-  to { opacity: 1; transform: translateX(0); }
 }
