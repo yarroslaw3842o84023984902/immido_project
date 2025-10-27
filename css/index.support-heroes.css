@@ -3,7 +3,7 @@
   position: fixed;
   bottom: 30px;  /* трохи вище */
   right: 30px;
-  z-index: 99999; /* 🔹 поверх усього, навіть футера */
+  z-index: 99999; /* поверх усього, навіть футера */
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -44,7 +44,7 @@
   transform: scale(1.07);
 }
 
-/* 🟦 Прапор */
+/* Прапор */
 .support-ua-flag {
   width: 95px;
   height: auto;
