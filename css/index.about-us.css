@@ -10,7 +10,7 @@
   text-align: left;
   color: var(--color-primary);
   margin-bottom: 70px;
-  padding-left: 119px; /* 👈 той самий відступ, що й у fast__calculation */
+  padding-left: 119px; /* */
 }
 
 /* === GRID === */
@@ -20,8 +20,8 @@
   grid-template-rows: repeat(2, auto);
   gap: 60px 60px;
 
-  /* 👇 Вирівняно з .focus__mai_trust */
-  padding: 0 119px; /* 👈 чітко як у швидкому прорахунку */
+  /*  Вирівняно з .focus__mai_trust */
+  padding: 0 119px; /* як у швидкому прорахунку */
   box-sizing: border-box;
 
   max-width: 1800px;

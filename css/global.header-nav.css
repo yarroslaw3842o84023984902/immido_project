@@ -47,12 +47,12 @@
 #language-button {
   display: flex;
   align-items: center;
-  justify-content: center;   /* 🔹 центр прапора і стрілки */
-  gap: 8px;                  /* трохи менша відстань */
+  justify-content: center;   /* центр прапора і стрілки */
+  gap: 8px;                  /* відстань */
   background-color: transparent;
   border: 2px solid #ffffff;
   border-radius: 18px;
-  padding: 6px 12px;         /* 🔹 менша ширина */
+  padding: 6px 12px;         /* менша ширина */
   min-width: 70px;           /* обмеження, щоб не стискалось надто сильно */
   cursor: pointer;
   transition: all 0.3s ease;
@@ -65,7 +65,7 @@
 
 /* === ПРАПОРЕЦЬ — більший, чіткий, центрований === */
 .lang-flag {
-  height: 30px;           /* 🔹 збільшено висоту */
+  height: 30px;           /* збільшено висоту */
   width: auto;
   aspect-ratio: 3 / 2;    /* правильна пропорція */
   border-radius: 4px;
@@ -75,7 +75,7 @@
   background-color: transparent;
 }
 
-/* === СТРІЛКА — трохи менша, щоб не відволікала === */
+/* === СТРІЛКА === */
 .lang-arrow {
   width: 8px;
   height: 8px;
