@@ -3,7 +3,7 @@
   
     <div class="cases__logos">
       <div class="case" data-case="case1">
-        <img src="img/test.webp" alt="Case 1 logo">
+        <img src="img/spribeL.png" alt="Case 1 logo">
       </div>
       <div class="case" data-case="case2">
         <img src="img/test.webp" alt="Case 2 logo">
@@ -23,9 +23,14 @@
     <div class="case-modal" id="caseModal">
       <div class="case-modal__content">
         <button class="case-modal__close" aria-label="Закрити">&times;</button>
-        <iframe id="caseFrame" src="" frameborder="0" allowfullscreen></iframe>
+  
+        <!-- 🔹 НІЯКОГО sandbox тут -->
+        <iframe
+          id="caseFrame"
+          src=""
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
       </div>
     </div>
-
-    <script src="cases.js"></script>
   </section>
