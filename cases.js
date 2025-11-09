@@ -15,9 +15,10 @@ function initCasesModal() {
   // 💾 Шляхи до файлів
   const links = {
     case1: 'cases/Spribe.pdf',
-    case2: 'cases/case2.pdf',
-    case3: 'cases/case3.pdf',
-    case4: 'cases/case4.pdf'
+    case2: 'cases/Payoneer.pdf',
+    case3: 'cases/Irys.pdf',
+    case4: 'cases/GameDev.pdf',
+    case5: 'cases/Brizzol.pdf'
   };
 
   // Клік по логотипах
