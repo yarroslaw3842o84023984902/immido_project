@@ -22,9 +22,10 @@
   height: 420px;
 }
 
+/* 🔹 без засічок */
 .word {
   position: absolute;
-  font-family: "Crimson Pro", serif;
+  font-family: "Inter", "Poppins", sans-serif;
   font-weight: 700;
   font-size: 64px;
   white-space: nowrap;
@@ -79,6 +80,7 @@
 
   .word {
     position: static;
+    font-family: "Inter", "Poppins", sans-serif; /* 🔹 без засічок */
     font-size: 22px !important;
     line-height: 1.3;
     text-align: center;
@@ -92,9 +94,9 @@
     transition: all 0.3s ease;
     width: 90%;
     max-width: 300px;
-    word-wrap: break-word;        /* переносить слова */
-    overflow-wrap: break-word;    /* підтримка Safari */
-    white-space: normal;          /* дозволяє перенос */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
     box-sizing: border-box;
   }
 

@@ -13,8 +13,10 @@
 /* === ЗМІННІ === */
 :root {
   scroll-behavior: smooth;
-  --font-family: "Crimson Pro", serif;
-  --font-secondary: "Abel", sans-serif;
+  /* 🔹 замість антикви — сучасні без засічок */
+  --font-family: "Inter", "Poppins", sans-serif;
+  --font-secondary: "Poppins", "Inter", sans-serif;
+
   --color-primary: #2F2B63;
   --color-secondary: #FFC20E;
   --color-third: #6e6e6e;

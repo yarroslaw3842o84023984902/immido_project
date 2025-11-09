@@ -1,0 +1,67 @@
+/* === CASES === */
+.cases {
+  position: relative;
+  text-align: center;
+  padding: 120px 0;
+  background: transparent; /* 🔹 фон із глобального фону сайту */
+  overflow: visible;
+  z-index: 1;
+}
+
+.cases__title {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  margin-bottom: 70px;
+  letter-spacing: 0.02em;
+  font-family: "Inter", "Poppins", sans-serif;
+}
+
+/* === ЛОГОТИПИ === */
+.cases__logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 70px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.case img {
+  height: 65px;
+  width: auto;
+  opacity: 0.85;
+  transition: transform 0.35s ease, opacity 0.35s ease, filter 0.4s ease, box-shadow 0.35s ease;
+  cursor: pointer;
+  filter: grayscale(0.3);
+  border-radius: 8px;
+}
+
+.case img:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  filter: grayscale(0);
+  box-shadow: 0 0 18px rgba(47, 43, 99, 0.25); /* 🔹 легке фіолетове світіння */
+}
+
+/* === МОБІЛЬНА ВЕРСІЯ === */
+@media (max-width: 900px) {
+  .cases {
+    padding: 80px 0;
+  }
+
+  .cases__title {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+
+  .cases__logos {
+    gap: 40px;
+  }
+
+  .case img {
+    height: 45px;
+  }
+}
