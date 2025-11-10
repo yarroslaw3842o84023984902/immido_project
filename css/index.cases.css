@@ -2,18 +2,19 @@
 .cases {
   position: relative;
   text-align: center;
-  padding: 120px 0; /* трохи менше, щоб секція виглядала компактніше */
+  padding: 60px 0 100px;
   background: transparent;
   overflow: visible;
   z-index: 1;
+  margin-top: -40px;
 }
 
 .cases__title {
-  font-size: 46px; /* 🔹 було 58px → менше */
+  font-size: 47px;
   font-weight: 700;
   color: var(--color-primary);
   text-transform: uppercase;
-  margin-bottom: 70px; /* 🔹 менший відступ від тексту до логотипів */
+  margin-bottom: 55px;
   letter-spacing: 0.02em;
   font-family: "Inter", "Poppins", sans-serif;
 }
@@ -24,14 +25,14 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 70px; /* 🔹 трохи менше відстані */
-  max-width: 1200px; /* 🔹 зменшено, щоб усе виглядало зібраніше */
+  gap: 65px; /* 🔹 трішки менший відступ для компактності */
+  max-width: 1150px;
   margin: 0 auto;
 }
 
 /* === КВАДРАТИКИ / ЛОГОТИПИ === */
 .case img {
-  height: 85px; /* 🔹 було 110px → зменшено */
+  height: 75px; /* 🔹 було 85px → стало трохи менше */
   width: auto;
   opacity: 0.9;
   cursor: pointer;
@@ -45,7 +46,6 @@
   transform-origin: center;
 }
 
-/* 🔹 Ефект при наведенні */
 .case img:hover {
   transform: scale(1.1);
   opacity: 1;
@@ -109,7 +109,7 @@
   background: var(--color-primary);
 }
 
-/* Анімації появи */
+/* === Анімації === */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -123,19 +123,20 @@
 /* === МОБІЛЬНА ВЕРСІЯ === */
 @media (max-width: 900px) {
   .cases {
-    padding: 80px 0;
+    padding: 60px 0 70px;
+    margin-top: -20px;
   }
 
   .cases__title {
     font-size: 32px;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
   }
 
   .cases__logos {
-    gap: 40px;
+    gap: 35px;
   }
 
   .case img {
-    height: 60px; /* 🔹 зменшено для мобільних */
+    height: 55px; /* 🔹 трохи менше й на мобільному */
   }
 }
