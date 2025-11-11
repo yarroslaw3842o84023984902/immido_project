@@ -1,4 +1,5 @@
-// 1) Після того як HTMX підмінить секцію з кейсами – ініціалізуємо модалку
+// Ініціалізація модалки після завантаження DOM або після HTMX
+document.addEventListener('DOMContentLoaded', initCasesModal);
 document.addEventListener('htmx:afterSwap', (e) => {
   if (e.detail.target && e.detail.target.id === 'cases') {
     initCasesModal();
@@ -7,28 +8,29 @@ document.addEventListener('htmx:afterSwap', (e) => {
 
 function initCasesModal() {
   const modal = document.getElementById('caseModal');
-  if (!modal) return;
+  const frame = document.getElementById('caseFrame');
+  const closeBtn = document.querySelector('.case-modal__close');
+  const caseElements = document.querySelectorAll('.case');
 
-  const frame   = document.getElementById('caseFrame');
-  const closeBtn = modal.querySelector('.case-modal__close');
+  if (!modal || !frame || !caseElements.length) return;
 
-  // 💾 Шляхи до файлів
+  // 💾 Шляхи до файлів (однакові для UA та EN)
   const links = {
     case1: 'cases/Spribe.pdf',
     case2: 'cases/Payoneer.pdf',
     case3: 'cases/Irys.pdf',
     case4: 'cases/GameDev.pdf',
-    case5: 'cases/Brizzol.pdf'
+    case5: 'cases/Brizzol.pdf',
+    case6: 'cases/Belatra.pdf',
   };
 
   // Клік по логотипах
-  document.querySelectorAll('.case').forEach((el) => {
+  caseElements.forEach((el) => {
     el.addEventListener('click', () => {
       const key = el.dataset.case;
       const pdfPath = links[key];
       if (!pdfPath) return;
 
-      // 🔹 Ховаємо тулбар/навігацію PDF-viewer’а
       const base = window.location.origin || '';
       const fullUrl = `${base}/${pdfPath}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`;
 
@@ -39,9 +41,7 @@ function initCasesModal() {
 
   // Закриття по кнопці
   if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-      closeModal(modal, frame);
-    });
+    closeBtn.addEventListener('click', () => closeModal(modal, frame));
   }
 
   // Закриття по кліку на фон
@@ -52,8 +52,7 @@ function initCasesModal() {
   });
 }
 
-// Допоміжна функція закриття
 function closeModal(modal, frame) {
   modal.classList.remove('active');
-  frame.src = ''; // очищаємо, щоб при наступному відкритті не було бага
+  frame.src = ''; // очищення iframe
 }
