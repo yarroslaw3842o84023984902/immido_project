@@ -1,17 +1,16 @@
 <nav class="nav">
+  <!-- 🔹 Бургер кнопка вище контейнера -->
+  <button class="nav__burger" id="burger" aria-label="Відкрити меню">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
   <div class="nav__container">
     <div class="nav__logo">
       <img class="nav__logo-img" src="./img/White.png" alt="global_logo" />
     </div>
 
-    <!-- 🔹 Бургер -->
-    <button class="nav__burger" id="burger" aria-label="Відкрити меню">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <!-- 🔹 Меню -->
     <ul class="nav__menu" id="navMenu">
       <li class="nav__menu-item"><a class="nav__menu-link" href="#">ГОЛОВНА</a></li>
       <li class="nav__menu-item"><a class="nav__menu-link" href="#about-us">ПРО НАС</a></li>
@@ -45,7 +44,7 @@
     </div>
   </div>
 
-  <!-- 🔹 Overlay -->
+  <!-- 🔹 Overlay (всередині nav, але після container) -->
   <div class="nav__overlay" id="navOverlay"></div>
 </nav>
 
