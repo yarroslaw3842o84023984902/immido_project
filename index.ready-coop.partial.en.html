@@ -1,62 +1,93 @@
 <section id="coop" class="contact-section">
-    <div class="contact-container">
-      <div class="contact-info">
-        <h2 class="contact-title">Ready to collaborate?</h2>
-        <p class="contact-text">
-          Fill out the form — and our team will contact you to discuss the details
-          and answer all your questions
-        </p>
-  
-        <ul class="contact-details">
-          <li>
-            <img src="/img/EmailIcon_inst_emoj.png" alt="email" class="icon-img" />
-            <a href="mailto:info@immido.co">info@immido.co</a>
-          </li>
-        
-          <li>
-            <img src="/img/TelephoneInstEmoji.png" alt="phone" class="icon-img" />
-            080-075-00-40
-          </li>
-        
-          <li>
-            <img src="/img/VectorInstEmoj.png" alt="address" class="icon-img" />
-            Ukraine, Kyiv<br>164 Antonovycha St.
-          </li>
-        </ul>
-  
-        <div class="contact-social">
-          <a href="https://www.facebook.com/profile.php?id=61582279665354" class="facebook" aria-label="Facebook">
-            <img src="img/faceb.png" alt="Facebook" />
-          </a>
-          <a href="https://t.me/AChakubash" class="telegram" aria-label="Telegram">
-            <img src="img/телега.png" alt="Telegram" />
-          </a>
-          <a href="https://www.linkedin.com/company/immido-co/posts/?feedView=all&viewAsMember=true" class="linkedin" aria-label="LinkedIn">
-            <img src="img/LinkedIn 2.png" alt="LinkedIn" />
-          </a>
-          <a href="https://www.instagram.com/llc_immido/" class="instagram" aria-label="Instagram">
-            <img src="img/інст.png" alt="Instagram" />
-          </a>
-        </div>
-      </div> 
-  
-      <!-- ✅ UPDATED FORM -->
-      <form class="contact-form" action="https://formspree.io/f/mjkapojz" method="POST">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your name" required>
-  
-        <label for="phone">Phone number</label>
-        <input type="tel" id="phone" name="phone" placeholder="+380..." required>
-  
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
-  
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="4" placeholder="Your message"></textarea>
-  
-        <button type="submit" class="contact-submit">
-          <i class="fa-solid fa-paper-plane"></i> Send
-        </button>
-      </form>
-    </div>
-  </section>
+  <div class="contact-container">
+    <h2 class="contact-title">Ready to collaborate?</h2>
+    <p class="contact-text">
+      Fill out the form — and our team will contact you to discuss details
+      and answer all your questions.
+    </p>
+
+    <!-- Contact Info -->
+    <ul class="contact-details">
+      <li>
+        <img src="/img/EmailIcon_inst_emoj.png" alt="email" class="icon-img" />
+        <a href="mailto:info@immido.co">info@immido.co</a>
+      </li>
+      <li>
+        <img src="/img/TelephoneInstEmoji.png" alt="phone" class="icon-img" />
+        080-075-00-40
+      </li>
+      <li>
+        <img src="/img/VectorInstEmoj.png" alt="address" class="icon-img" />
+        Ukraine, Kyiv<br />164 Antonovycha St.
+      </li>
+    </ul>
+
+    <!-- Form -->
+    <form class="contact-form" id="airtableFormEn">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your name" required />
+
+      <label for="phone">Phone number</label>
+      <input type="tel" id="phone" name="phone" placeholder="+380..." required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="example@gmail.com" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="4" placeholder="Your message"></textarea>
+
+      <button type="submit" class="contact-submit">
+        <i class="fa-solid fa-paper-plane"></i> Send
+      </button>
+    </form>
+
+    <p id="form-status-en" style="margin-top: 10px;"></p>
+  </div>
+</section>
+
+<script>
+  document.getElementById('airtableFormEn').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const status = document.getElementById('form-status-en');
+    status.textContent = "⏳ Sending data...";
+    status.style.color = "gray";
+
+    const data = {
+      records: [
+        {
+          fields: {
+            Name: form.name.value.trim(),
+            "Phone number": form.phone.value.trim(),
+            Email: form.email.value.trim(),
+            Message: form.message.value.trim(),
+          },
+        },
+      ],
+    };
+
+    try {
+      const res = await fetch("https://purple-fog-9ac3.petruk-yaroslav.workers.dev/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        status.textContent = "✅ Data sent successfully!";
+        status.style.color = "green";
+        form.reset();
+      } else {
+        const err = await res.json().catch(() => ({}));
+        console.error("Airtable error:", err);
+        status.textContent = "❌ Error: " + (err.error?.message || "Unknown issue");
+        status.style.color = "red";
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+      status.textContent = "⚠️ Network or server issue";
+      status.style.color = "red";
+    }
+  });
+</script>
