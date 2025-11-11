@@ -67,10 +67,10 @@ body::after {
 }
 
 /* === ВМІСТ ПОВЕРХ ШАРІВ === */
-body > * {
+/* body > * {
   position: relative;
   z-index: 1;
-}
+} */
 
 /* === ЗОБРАЖЕННЯ === */
 img {

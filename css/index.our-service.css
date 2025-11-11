@@ -208,7 +208,7 @@
 .slider__control--next { right: 30px; }
 
 /* === АДАПТИВ (мобільний формат) === */
-@media (max-width: 900px) {
+@media (max-width: 1150px) {
   .our-service__title {
     padding: 0 20px;
     margin-top: 60px;
