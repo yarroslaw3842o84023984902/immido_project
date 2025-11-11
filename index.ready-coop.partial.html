@@ -1,55 +1,37 @@
 <section id="coop" class="contact-section">
   <div class="contact-container">
-    <div class="contact-info">
-      <h2 class="contact-title">Готові до співпраці?</h2>
-      <p class="contact-text">
-        Заповніть форму — і наша команда зв’яжеться з вами, щоб обговорити деталі
-        та відповісти на всі ваші запитання
-      </p>
+    <h2 class="contact-title">Готові до співпраці?</h2>
+    <p class="contact-text">
+      Заповніть форму — і наша команда зв’яжеться з вами, щоб обговорити деталі
+      та відповісти на всі ваші запитання
+    </p>
 
-      <ul class="contact-details">
-        <li>
-          <img src="/img/EmailIcon_inst_emoj.png" alt="email" class="icon-img" />
-          <a href="mailto:info@immido.co">info@immido.co</a>
-        </li>
-      
-        <li>
-          <img src="/img/TelephoneInstEmoji.png" alt="phone" class="icon-img" />
-          080-075-00-40
-        </li>
-      
-        <li>
-          <img src="/img/VectorInstEmoj.png" alt="address" class="icon-img" />
-          Україна, Київ<br>вул. Антоновича 164
-        </li>
-      </ul>
+    <!-- Контактна інформація -->
+    <ul class="contact-details">
+      <li>
+        <img src="/img/EmailIcon_inst_emoj.png" alt="email" class="icon-img" />
+        <a href="mailto:info@immido.co">info@immido.co</a>
+      </li>
+      <li>
+        <img src="/img/TelephoneInstEmoji.png" alt="phone" class="icon-img" />
+        080-075-00-40
+      </li>
+      <li>
+        <img src="/img/VectorInstEmoj.png" alt="address" class="icon-img" />
+        Україна, Київ<br />вул. Антоновича 164
+      </li>
+    </ul>
 
-      <div class="contact-social">
-        <a href="https://www.facebook.com/profile.php?id=61582279665354" class="facebook" aria-label="Facebook">
-          <img src="img/faceb.png" alt="Facebook" />
-        </a>
-        <a href="https://t.me/AChakubash" class="telegram" aria-label="Telegram">
-          <img src="img/телега.png" alt="Telegram" />
-        </a>
-        <a href="https://www.linkedin.com/company/immido-co/posts/?feedView=all&viewAsMember=true" class="linkedin" aria-label="LinkedIn">
-          <img src="img/LinkedIn 2.png" alt="LinkedIn" />
-        </a>
-        <a href="https://www.instagram.com/llc_immido/" class="instagram" aria-label="Instagram">
-          <img src="img/інст.png" alt="Instagram" />
-        </a>
-      </div>
-    </div> 
-
-    <!-- ✅ ОНОВЛЕНА ФОРМА -->
-    <form class="contact-form" action="https://formspree.io/f/mjkapojz" method="POST">
+    <!-- Форма -->
+    <form class="contact-form" id="airtableForm">
       <label for="name">Ім’я</label>
-      <input type="text" id="name" name="name" placeholder="Ваше ім’я" required>
+      <input type="text" id="name" name="name" placeholder="Ваше ім’я" required />
 
       <label for="phone">Номер телефону</label>
-      <input type="tel" id="phone" name="phone" placeholder="+380..." required>
+      <input type="tel" id="phone" name="phone" placeholder="+380..." required />
 
       <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+      <input type="email" id="email" name="email" placeholder="example@gmail.com" required />
 
       <label for="message">Повідомлення</label>
       <textarea id="message" name="message" rows="4" placeholder="Ваше повідомлення"></textarea>
@@ -58,5 +40,55 @@
         <i class="fa-solid fa-paper-plane"></i> Надіслати
       </button>
     </form>
+
+    <p id="form-status" style="margin-top: 10px;"></p>
   </div>
 </section>
+
+<script>
+  document.getElementById('airtableForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const status = document.getElementById('form-status');
+    status.textContent = "⏳ Надсилаємо дані...";
+    status.style.color = "gray";
+
+    // Данні для відправки
+    const data = {
+      records: [
+        {
+          fields: {
+            Name: form.name.value.trim(),
+            "Phone number": form.phone.value.trim(),
+            Email: form.email.value.trim(),
+            Message: form.message.value.trim(),
+          },
+        },
+      ],
+    };
+
+    try {
+      const res = await fetch("https://purple-fog-9ac3.petruk-yaroslav.workers.dev/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        status.textContent = "✅ Дані успішно відправлено!";
+        status.style.color = "green";
+        form.reset();
+      } else {
+        const err = await res.json().catch(() => ({}));
+        console.error("Airtable error:", err);
+        status.textContent = "❌ Помилка: " + (err.error?.message || "невідомо");
+        status.style.color = "red";
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+      status.textContent = "⚠️ Проблема з мережею або сервером";
+      status.style.color = "red";
+    }
+  });
+</script>
