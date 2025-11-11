@@ -58,7 +58,7 @@
 }
 
 /* === МОБІЛЬНА ВЕРСІЯ === */
-@media (max-width: 900px) {
+@media (max-width: 1367px) {
   .industries {
     padding: 80px 0;
   }

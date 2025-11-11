@@ -4,7 +4,15 @@
       <img class="nav__logo-img" src="./img/White.png" alt="global_logo" />
     </div>
 
-    <ul class="nav__menu">
+    <!-- 🔹 Бургер -->
+    <button class="nav__burger" id="burger" aria-label="Відкрити меню">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- 🔹 Меню -->
+    <ul class="nav__menu" id="navMenu">
       <li class="nav__menu-item"><a class="nav__menu-link" href="#">ГОЛОВНА</a></li>
       <li class="nav__menu-item"><a class="nav__menu-link" href="#about-us">ПРО НАС</a></li>
       <li class="nav__menu-item"><a class="nav__menu-link" href="#service">ПОСЛУГИ</a></li>
@@ -24,7 +32,6 @@
         0 800 750 040
       </span>
 
-      <!-- 🔹 ВИБІР МОВИ -->
       <div class="language-selector">
         <button id="language-button">
           <img src="img/UAiconBut.png" alt="Ukrainian flag" class="lang-flag" />
@@ -35,7 +42,34 @@
           <li><button data-lang="en">EN</button></li>
         </ul>
       </div>
-      
     </div>
   </div>
+
+  <!-- 🔹 Overlay -->
+  <div class="nav__overlay" id="navOverlay"></div>
 </nav>
+
+<script>
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('navMenu');
+  const overlay = document.getElementById('navOverlay');
+
+  function toggleMenu() {
+    burger.classList.toggle('active');
+    menu.classList.toggle('active');
+    overlay.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+  }
+
+  burger.addEventListener('click', toggleMenu);
+  overlay.addEventListener('click', toggleMenu);
+
+  document.querySelectorAll('.nav__menu-link').forEach(link => {
+    link.addEventListener('click', () => {
+      burger.classList.remove('active');
+      menu.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    });
+  });
+</script>
