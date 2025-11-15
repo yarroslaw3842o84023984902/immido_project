@@ -115,3 +115,4 @@ document.body.addEventListener("htmx:afterSwap", (e) => {
     updateFlagIcon();
   }
 });
+
