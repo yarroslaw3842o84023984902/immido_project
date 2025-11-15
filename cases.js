@@ -14,17 +14,19 @@ function initCasesModal() {
 
   if (!modal || !frame || !caseElements.length) return;
 
-  // 💾 Шляхи до файлів (однакові для UA та EN)
+  // 🟡 Визначаємо мову з LocalStorage
+  const lang = localStorage.getItem("lang") === "en" ? "en" : "ua";
+
+  // 💾 Шляхи до файлів (UA та EN)
   const links = {
-    case1: 'cases/Spribe.pdf',
-    case2: 'cases/Payoneer.pdf',
-    case3: 'cases/Irys.pdf',
-    case4: 'cases/GameDev.pdf',
-    case5: 'cases/Brizzol.pdf',
-    case6: 'cases/Belatra.pdf',
+    case1: lang === 'en' ? 'cases/SpribeEN.pdf'   : 'cases/Spribe.pdf',
+    case2: lang === 'en' ? 'cases/PayoneerEN.pdf' : 'cases/Payoneer.pdf',
+    case3: lang === 'en' ? 'cases/IrysEN.pdf'     : 'cases/Irys.pdf',
+    case4: lang === 'en' ? 'cases/GameDevEN.pdf'  : 'cases/GameDev.pdf',
+    case5: lang === 'en' ? 'cases/BrizzolEN.pdf'  : 'cases/Brizzol.pdf',
+    case6: lang === 'en' ? 'cases/BelatraEN.pdf'  : 'cases/Belatra.pdf',
   };
 
-  // Клік по логотипах
   caseElements.forEach((el) => {
     el.addEventListener('click', () => {
       const key = el.dataset.case;
@@ -39,12 +41,10 @@ function initCasesModal() {
     });
   });
 
-  // Закриття по кнопці
   if (closeBtn) {
     closeBtn.addEventListener('click', () => closeModal(modal, frame));
   }
 
-  // Закриття по кліку на фон
   modal.addEventListener('click', (e) => {
     if (e.target === modal) {
       closeModal(modal, frame);
@@ -54,5 +54,5 @@ function initCasesModal() {
 
 function closeModal(modal, frame) {
   modal.classList.remove('active');
-  frame.src = ''; // очищення iframe
+  frame.src = '';
 }
