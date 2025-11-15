@@ -4,10 +4,10 @@ function updateFlagIcon(lang = localStorage.getItem("lang") || "uk") {
   if (!img) return;
 
   if (lang === "en") {
-    img.src = "img/ENiconBut.png";
+    img.src = "/img/ENiconBut.png";  // ← FIXED
     img.alt = "English flag";
   } else {
-    img.src = "img/UAiconBut.png";
+    img.src = "/img/UAiconBut.png";  // ← FIXED
     img.alt = "Ukrainian flag";
   }
 }
@@ -59,24 +59,24 @@ function setLanguage(lang) {
   document.documentElement.lang = lang;
 
   const current = window.location.pathname;
-  const isEnglish = current.includes("index.en.html");
-  const isUkrainian =
-    current.includes("index.html") || current === "/" || current === "/index.html";
 
   let target = null;
 
-  if (lang === "en" && !isEnglish) {
-    target = "index.en.html";
-  } else if (lang === "uk" && !isUkrainian) {
-    target = "index.html";
+  // --- НОВА логіка переходів ---
+  if (lang === "en") {
+    target = "/en/";
+  } else if (lang === "uk") {
+    target = "/";
   }
 
-  if (target) {
-    console.log(`🔁 Redirecting to: ${target}`);
-    window.location.replace(target); // 🔄 без створення історії переходів
-  } else {
+  // якщо вже правильно — нічого не робимо
+  if (current === target) {
     console.log("✅ Already correct page — no redirect");
+    return;
   }
+
+  console.log(`🔁 Redirecting to: ${target}`);
+  window.location.replace(target);
 }
 
 // --- подія при старті ---
@@ -84,19 +84,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const savedLang = localStorage.getItem("lang") || "uk";
   const path = window.location.pathname.toLowerCase();
 
-  const isEnglishPage = path.includes("index.en");
-  const isUkrainianPage = path === "/" || (path.includes("index") && !path.includes("index.en"));
+  const isEnglishPage = path.startsWith("/en/");
+  const isUkrainianPage = path === "/" || path === "/index.html";
 
   // 🚫 не створюємо петлі
   if (savedLang === "en" && !isEnglishPage) {
     console.log("🔁 Redirecting to English version");
-    window.location.replace("index.en.html");
+    window.location.replace("/en/");
     return;
   }
 
   if (savedLang === "uk" && !isUkrainianPage) {
     console.log("🔁 Redirecting to Ukrainian version");
-    window.location.replace("index.html");
+    window.location.replace("/");
     return;
   }
 
@@ -111,8 +111,6 @@ document.body.addEventListener("htmx:afterSwap", (e) => {
   if (e.target.matches("nav") || e.target.closest("nav")) {
     console.log("♻️ Reinitializing dropdown after HTMX swap");
     initLanguageDropdown();
-    // 🔧 підстрахуємося ще раз — оновимо прапор
     updateFlagIcon();
   }
 });
-

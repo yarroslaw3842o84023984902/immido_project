@@ -115,15 +115,16 @@
   font-weight: 700;
   font-size: 18px;
   border: none;
-  padding: 12px 28px;
+  padding: 14px 32px;
   border-radius: 12px;
   cursor: pointer;
   transition: 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+
+  display: inline-block;
+  text-align: center;
+  line-height: 1.2; /* відповідає за текст по центру */
   margin-top: 10px;
-  align-self: flex-start;
+  align-self: flex-start; /* не розтягується на всю ширину */
 }
 
 .contact-submit:hover {
